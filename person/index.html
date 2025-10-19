@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>陈皓林 - 个人作品集</title>
+  <!-- 引入Tailwind CSS（CDN在线资源，部署后可直接访问） -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome图标（CDN在线资源） -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 引入Chart.js用于技能展示（CDN在线资源） -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+  
+  <!-- Tailwind配置（自定义颜色、字体） -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            dark: '#1D2129',
+            light: '#F2F3F5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .card-hover {
+        @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+      }
+      .section-padding {
+        @apply py-16 md:py-24;
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-light font-sans text-dark">
+  <!-- 导航栏（所有链接为本地相对路径，部署后生效） -->
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-white"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </a>
+        </div>
+        
+        <!-- 桌面导航 -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄区域 -->
+  <header class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2 animate-fade-in" style="animation-delay: 0.1s;">
+          <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-4">
+            游戏开发者<br>
+            <span class="text-primary">陈皓林</span>
+          </h1>
+          <p class="text-gray-600 text-lg mb-8 max-w-lg">
+            电子科技大学软件工程（数字动漫）专业学生，专注UE5游戏开发与设计，多次带队获省级竞赛奖项，致力于打造优质玩家体验。
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="index.html#projects" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg">
+              查看我的项目
+            </a>
+            <a href="index.html#contact" class="px-6 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-primary/5 transition-colors">
+              联系我
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center animate-fade-in" style="animation-delay: 0.3s;">
+          <div class="relative">
+            <div class="w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden border-4 border-white shadow-xl">
+              <!-- 替换为个人照片（部署前需将图片放在images文件夹，路径改为images/photo.jpg） -->
+              <img src="https://via.placeholder.com/400?text=陈皓林-个人照片" alt="陈皓林照片" class="w-full h-full object-cover">
+            </div>
+            <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-lg">
+              <div class="text-center">
+                <p class="text-sm text-gray-500">就读于</p>
+                <p class="font-semibold">电子科技大学</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 关于我 -->
+    <section id="about" class="section-padding bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">关于我</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-light rounded-2xl p-8 shadow-sm">
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              本人性格开朗阳光，积极投身大学生活，大学期间参与学生会及虚幻工作室，主导策划2场校级活动、协助2个校企项目，积累了扎实的组织协调经验。
+            </p>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              多次带队参与学科竞赛与创新创业项目（如服务创新外包大赛、计算机设计大赛），获国家级、省级奖项若干；联合多校社团创建游戏开发联盟，协办比赛并提供游戏制作交流平台，深化行业认知。
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              热爱大型3A游戏，熟悉各类游戏玩法设计，对UE5游戏开发有极高热情，希望未来能打造让玩家感受到快乐的游戏作品。
+            </p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            <div class="bg-light rounded-xl p-6 text-center card-hover">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-graduation-cap text-primary text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">教育背景</h3>
+              <p class="text-gray-600">电子科技大学<br>软件工程（数字动漫）<br>GPA：3.8 | 排名17/88</p>
+            </div>
+            
+            <div class="bg-light rounded-xl p-6 text-center card-hover">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-gamepad text-primary text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">核心能力</h3>
+              <p class="text-gray-600">UE5 C++/蓝图开发<br>游戏策划与UI设计<br>图形学（OpenGL）</p>
+            </div>
+            
+            <div class="bg-light rounded-xl p-6 text-center card-hover">
+              <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-trophy text-primary text-xl"></i>
+              </div>
+              <h3 class="font-semibold text-lg mb-2">竞赛成果</h3>
+              <p class="text-gray-600">服务创新外包大赛国三<br>计算机设计大赛省三<br>三教杯游戏优秀作品奖</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="section-padding bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">专业技能</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            掌握多种编程语言和开发工具，专注于游戏开发领域，具备从策划到实现的全流程能力
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div>
+            <h3 class="text-xl font-semibold mb-6">技术能力</h3>
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>C/C++ 编程（UE开发）</span>
+                  <span>85%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Unreal Engine 5</span>
+                  <span>80%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>Python（数据处理/强化学习）</span>
+                  <span>75%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>OpenGL（图形渲染）</span>
+                  <span>70%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div>
+                </div>
+              </div>
+              
+              <div>
+                <div class="flex justify-between mb-2">
+                  <span>PostgreSQL 数据库</span>
+                  <span>65%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-semibold mb-6">能力分布</h3>
+            <div class="bg-white p-4 rounded-xl shadow-sm h-64">
+              <canvas id="skillsChart"></canvas>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-12">
+          <h3 class="text-xl font-semibold mb-6">相关课程与证书</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">C++程序设计</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">图形与动画</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">计算机操作系统</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">计算机网络</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">PostgreSQL 数据库</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">计算机组成原理</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">数字天空虚幻C++课程证书</span>
+            <span class="px-4 py-2 bg-white rounded-full shadow-sm">CET-6</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 教育经历 -->
+    <section id="education" class="section-padding bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">教育经历</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="max-w-3xl mx-auto">
+          <div class="relative">
+            <!-- 时间线 -->
+            <div class="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:translate-x-px"></div>
+            
+            <!-- 大学教育（匹配简历信息） -->
+            <div class="relative pl-14 md:pl-0 mb-12 md:flex">
+              <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1 mt-4 md:mt-0">
+                <h3 class="text-xl font-semibold">电子科技大学</h3>
+                <p class="text-primary">软件工程（数字动漫） | 本科</p>
+                <p class="text-gray-600 mt-2">GPA: 3.8 | 专业排名: 17/88</p>
+                <p class="mt-3 text-gray-700">
+                  主修游戏开发与数字动漫方向，核心课程涵盖C++程序设计、图形与动画、计算机网络等；参与数字天空虚幻C++公开课程，获结课证书；担任虚幻工作室主席，组织游戏开发培训与项目实践。
+                </p>
+              </div>
+              
+              <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center order-1 md:order-2">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              
+              <div class="md:w-1/2 md:pl-8 hidden md:block order-3">
+                <p class="text-gray-500 font-medium">2023年8月 - 2027年8月</p>
+              </div>
+              
+              <div class="md:hidden order-1 text-gray-500 font-medium">
+                <p>2023年8月 - 2027年8月</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目展示（所有链接指向project-details子文件夹，需与详情页文件名对应） -->
+    <section id="projects" class="section-padding bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">项目作品</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            参与开发的各类项目，包括游戏开发、可视化分析和科研项目等，均基于UE5、C++等核心技术实现
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 项目1：《炼金之地》（工作室项目） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://via.placeholder.com/400x300?text=炼金之地-炼金场景" alt="《炼金之地》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-lg font-semibold">《炼金之地》</h3>
+                <span class="text-sm text-gray-500">2024/01-2024/03</span>
+              </div>
+              <p class="text-gray-600 mb-4 text-sm">
+                3人小队队长，负责游戏策划、客户端UI交互、背包系统、地图搭建及开场CG制作，为三教杯优秀作品奖奠定基础。
+              </p>
+              <a href="project-details/alchemy-land.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 项目2：《森林魔女》（三教杯-疯狂游戏） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://via.placeholder.com/400x300?text=森林魔女-奇幻场景" alt="《森林魔女》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-lg font-semibold">《森林魔女》</h3>
+                <span class="text-sm text-gray-500">2023/11-2023/12</span>
+              </div>
+              <p class="text-gray-600 mb-4 text-sm">
+                4人小队队长，负责游戏流程策划、物品交互功能及全量UI设计实现，获三教杯游戏优秀作品奖。
+              </p>
+              <a href="project-details/forest-witch.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 项目3：《机械守护》（三教杯-91act） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://via.placeholder.com/400x300?text=机械守护-机甲场景" alt="《机械守护》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-lg font-semibold">《机械守护》</h3>
+                <span class="text-sm text-gray-500">2024/05-2024/06</span>
+              </div>
+              <p class="text-gray-600 mb-4 text-sm">
+                4人小队队长，主导关卡流程系统设计、物品功能交互及UI开发，三教杯参赛作品。
+              </p>
+              <a href="project-details/mechanical-guard.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 项目4：《算数遗珍》（计算机设计大赛） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://via.placeholder.com/400x300?text=算数遗珍-教育场景" alt="《算数遗珍》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-lg font-semibold">《算数遗珍》</h3>
+                <span class="text-sm text-gray-500">2024/04-2024/05</span>
+              </div>
+              <p class="text-gray-600 mb-4 text-sm">
+                5人小队队长，负责游戏流程策划、人物对话系统及关卡检测功能，获计算机设计大赛省级三等奖。
+              </p>
+              <a href="project-details/math-treasure.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 项目5：OpenGL动画开发（个人项目） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://via.placeholder.com/400x300?text=OpenGL-粒子效果" alt="OpenGL动画开发截图" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-lg font-semibold">OpenGL动画开发</h3>
+                <span class="text-sm text-gray-500">2025/03-2025/05</span>
+              </div>
+              <p class="text-gray-600 mb-4 text-sm">
+                个人项目，用C+++OpenGL实现弹性物理模拟、水面模拟、烟雾模拟及粒子系统，深化图形学理解。
+              </p>
+              <a href="project-details/opengl-animation.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 项目6：智能交通强化学习（科研项目） -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img src="https://via.placeholder.com/400x300?text=智能交通-AI模拟" alt="智能交通科研项目截图" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-3">
+                <h3 class="text-lg font-semibold">智能交通强化学习</h3>
+                <span class="text-sm text-gray-500">2025/07-2025/08</span>
+              </div>
+              <p class="text-gray-600 mb-4 text-sm">
+                科研项目，配置SUMO虚拟环境，实现智能体与环境交互，用PPO算法设计奖励机制，完成道路模拟。
+              </p>
+              <a href="project-details/traffic-ai.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+                查看详情 <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 社团经历 -->
+    <section id="experience" class="section-padding bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">社团与活动经历</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="space-y-8">
+            <div class="bg-light rounded-xl p-6 card-hover">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-users text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">学生会策划组组长</h3>
+                  <p class="text-gray-600">
+                    协调学生会多部门，主导多次大型晚会策划与执行，负责活动流程设计、人员分工及现场统筹，获2023学生会组织部优秀个人奖。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-light rounded-xl p-6 card-hover">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-gavel text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">学校23届学生大会代表</h3>
+                  <p class="text-gray-600">
+                    作为学生代表参加校级学生大会，参与议题讨论与投票，反馈学生群体需求，推动校园服务优化。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-light rounded-xl p-6 card-hover">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-star text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">班级入党推优候选人</h3>
+                  <p class="text-gray-600">
+                    参与班级入党推优与答辩，提交思想汇报，学习党的理论知识，提升思想觉悟与服务意识。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-light rounded-xl p-6 card-hover">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-cogs text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">虚幻工作室主席</h3>
+                  <p class="text-gray-600">
+                    参与虚幻工作室招新工作并竞选主席，组织游戏开发培训、项目分享会，统筹工作室内部项目进度，提升成员技术能力。
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-light rounded-xl p-6 card-hover">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="fas fa-handshake text-primary"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">游戏开发联盟发起人</h3>
+                  <p class="text-gray-600">
+                    联合电子科技大学、四川大学等多校游戏社团，创建游戏开发联盟，协办校级游戏开发比赛，搭建跨校技术交流平台，覆盖成员200+。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式（已调整为居中显示基本信息，删除表单） -->
+    <section id="contact" class="section-padding bg-gradient-to-br from-primary/5 to-secondary/5">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">联系我</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            对我的项目感兴趣或有合作意向？请通过以下方式联系我
+          </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+          <div class="grid grid-cols-1 gap-8">
+            <!-- 居中显示的基本信息 -->
+            <div class="bg-white rounded-xl p-8 shadow-md max-w-md mx-auto">
+              <h3 class="text-xl font-semibold mb-6 text-center">基本信息</h3>
+              
+              <div class="space-y-6">
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-user text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 text-sm">姓名</p>
+                    <p>陈皓林</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-calendar text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 text-sm">出生年月</p>
+                    <p>2005/07/06</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-map-marker-alt text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 text-sm">现居地</p>
+                    <p>四川成都</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-phone text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 text-sm">电话</p>
+                    <p>18568525203</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-center">
+                  <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-envelope text-primary"></i>
+                  </div>
+                  <div>
+                    <p class="text-gray-500 text-sm">邮箱</p>
+                    <p>1062237244@qq.com</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-primary"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </div>
+          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="itch.io游戏平台">
+            <i class="fab fa-itch-io text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="mailto:1062237244@qq.com" class="text-gray-400 hover:text-white transition-colors" title="发送邮箱">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 陈皓林. 专注UE5游戏开发，致力于打造优质玩家体验.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 移动端菜单切换
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="index.html#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+        const targetId = this.getAttribute('href').split('#')[1];
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // 技能图表
+    const ctx = document.getElementById('skillsChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['游戏策划', 'UE5开发', 'C++编程', 'Python', '图形学', '项目管理'],
+        datasets: [{
+          label: '技能熟练度',
+          data: [85, 80, 85, 75, 70, 80],
+          backgroundColor: 'rgba(22, 93, 255, 0.2)',
+          borderColor: 'rgba(22, 93, 255, 1)',
+          pointBackgroundColor: 'rgba(22, 93, 255, 1)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(22, 93, 255, 1)'
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              stepSize: 20,
+              display: false
+            }
+          }
+        }
+      }
+    });
+    
+    // 滚动动画
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('section > div > div').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
