@@ -109,7 +109,7 @@
       
       <!-- 项目封面（保持不变） -->
       <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
-        <img src="https://via.placeholder.com/1200x600?text=炼金之地-游戏封面（炼金主题场景）" alt="《炼金之地》游戏封面" class="w-full h-auto">
+        <img src="../images/12865781-910f-44eb-922d-75a9804ef79f.png" alt="《炼金之地》游戏封面" class="w-full h-auto">
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -121,8 +121,7 @@
               《炼金之地》是一款围绕“炼金合成”核心玩法的冒险游戏，玩家需在奇幻场景中收集材料、解锁炼金配方，并通过物品交互推动剧情，最终达成“修复世界元素平衡”的目标。项目为3人小队开发，作为队长全程主导，是我首次独立统筹中小型游戏模块开发的实践。
             </p>
             <p class="text-gray-700 leading-relaxed">
-              开发过程中，我结合《C++程序设计》《图形与动画》课程所学，将理论落地到实际模块：用C++实现底层逻辑，用UE5蓝图搭建交互流程，最终完成从“策划文档”到“可玩demo”的全流程交付，为后续参与“2024三教杯游戏比赛”并获优秀作品奖奠定了技术与协作基础。
-            </p>
+              开发过程中，参考bilibili教程，将理论落地到实际模块，项目最终成功入选虚幻工作室考核，获得宝贵的实战经验。
           </section>
           
           <section class="bg-white rounded-xl p-8 shadow-md">
@@ -138,25 +137,25 @@
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">客户端UI交互开发：用UE5 UMG（Unreal Motion Graphics）搭建界面，结合C++实现“背包-物品-人物”的联动（如点击炼金材料触发合成弹窗）</p>
+                <p class="text-gray-700">客户端UI交互开发：用UE5 UMG（Unreal Motion Graphics）搭建界面，结合蓝图实现“背包-物品-人物”的联动</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">背包系统底层实现：用C++定义Item类与InventoryManager类，支持物品堆叠、分类（材料/成品/消耗品）、丢弃等功能，代码复用率达80%</p>
+                <p class="text-gray-700">背包系统底层实现：定义Item组件与InventoryManager，用UE5蓝图搭建交互流程，通过给人物添加组件存储人物物品信息，并对游戏内物品通过映射进行编号，并通过设置表格查找借助id得到物品的所有信息，包括功能等将其进而实现对背包组件内物品查找、堆叠、分类、丢弃等功能。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">存档点机制设计：通过UE5 SaveGame类实现“多档位存档”，支持玩家在关键节点（如炼金台、关卡终点）自动/手动保存，解决进度丢失问题</p>
+                <p class="text-gray-700">存档点机制设计：通过UE5 SaveGame类实现存档，存档点通过savegame将游戏内人物的当前坐标，物品数量，激活存档点等数据拷贝到savegame中，支持玩家在关键节点自动/手动保存，每当重启游戏的时候在加载游戏的时候会对游戏内所有的数据进行读取重新赋值操作，保证和上次退出时场景保持一致，解决进度丢失问题。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">地图搭建与优化：结合《图形与动画》课程的光照知识，用UE5地形工具搭建2个核心场景，调整材质参数减少Draw Call，保障帧率稳定在60fps以上</p>
+                <p class="text-gray-700">地图搭建与优化：参考3A游戏风格，用UE5地形工具搭建整个核心场景</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
@@ -168,34 +167,17 @@
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">团队协调管理：根据3人分工（1名程序+1名美术+1名策划）制定周进度表，每日同步开发问题（如美术资源导入引擎后的碰撞体适配），确保项目按期交付</p>
+                <p class="text-gray-700">团队协调管理：根据3人分工制定周进度表，每周同步开发问题，确保项目按期交付</p>
               </li>
             </ul>
           </section>
-          
+
+                  <!-- 游戏截图（补充与职责匹配的截图描述） -->
           <section class="bg-white rounded-xl p-8 shadow-md">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">游戏截图</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-背包界面" alt="《炼金之地》背包系统界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">背包系统界面（展示材料分类与合成入口，C++底层逻辑+UMG UI实现）</p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-地图场景" alt="《炼金之地》地图场景" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">核心地图场景（UE5地形工具搭建，含存档点标识与可交互炼金台）</p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-合成界面" alt="《炼金之地》炼金合成界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">炼金合成界面（支持材料拖拽组合，触发C++定义的合成逻辑）</p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-对话系统" alt="《炼金之地》人物对话系统" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">人物对话系统（展示分支选项，支持根据背包物品解锁隐藏剧情）</p>
-              </div>
-            </div>
+
           </section>
         </div>
-        
+
         <!-- 侧边栏（内容保持不变） -->
         <div class="space-y-6">
           <div class="bg-white rounded-xl p-6 shadow-md">
@@ -211,15 +193,15 @@
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">团队规模</p>
-                <p>3人（1名程序+1名美术+1名策划）</p>
+                <p>3人</p>
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">我的角色</p>
-                <p>队长 / 主程序 / 核心策划</p>
+                <p>队长 / 程序 / 核心策划</p>
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">关联成果</p>
-                <p>为2024三教杯游戏优秀作品奖奠定基础</p>
+                <p>参与虚幻工作室入选考核成功入选</p>
               </div>
             </div>
           </div>
@@ -241,7 +223,7 @@
             <ul class="space-y-2">
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>独立完成5个核心模块开发，掌握UE5中C++与蓝图的混合调用逻辑</span>
+                <span>独立完成5个核心模块开发，掌握UE5中蓝图调用逻辑</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
@@ -249,11 +231,7 @@
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>将《图形与动画》《C++程序设计》课程知识落地，提升技术应用能力</span>
-              </li>
-              <li class="flex items-start text-sm">
-                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>项目开发经验直接支撑后续参与“三教杯”并获游戏优秀作品奖</span>
+                <span>将融合课程知识落地，提升技术应用能力</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
@@ -264,12 +242,9 @@
           
           <div class="bg-white rounded-xl p-6 shadow-md">
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">获取与联系</h3>
-            <a href="#" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-3">
-              <i class="fas fa-download mr-2"></i> 下载游戏Demo
-            </a>
-            <a href="#" class="block w-full py-3 border border-gray-300 text-gray-700 rounded-lg text-center hover:bg-gray-50 transition-colors mb-4">
-              <i class="fas fa-code mr-2"></i> 查看核心模块代码
-            </a>
+              <a href="https://www.bilibili.com/video/BV1U1421Q7Le?spm_id_from=333.788.videopod.episodes&vd_source=be09ec9fdc81b1a98dd34e071782970a&p=4" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-3">
+                <i class="fas fa-download mr-2"></i> 查看游戏Demo
+              </a>
             <div class="text-sm text-gray-600">
               <p class="mb-1"><i class="fas fa-phone mr-2 text-primary"></i> 联系电话：18568525203</p>
               <p><i class="fas fa-envelope mr-2 text-primary"></i> 邮箱：1062237244@qq.com</p>

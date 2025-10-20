@@ -124,9 +124,9 @@
         </div>
         <div class="md:w-1/2 flex justify-center animate-fade-in" style="animation-delay: 0.3s;">
           <div class="relative">
-            <div class="w-64 h-64 md:w-80 md:h-80 rounded-xl overflow-hidden border-4 border-white shadow-xl">
+            <div class="w-64 h-64 md:w-60 md:h-80 rounded-xl overflow-hidden border-4 border-white shadow-xl">
               <!-- 替换为个人照片（部署前需将图片放在images文件夹，路径改为images/photo.jpg） -->
-              <img src="https://via.placeholder.com/400?text=陈皓林-个人照片" alt="陈皓林照片" class="w-full h-full object-cover">
+             <img src="images/c2c465caff171bfe3ff9d9d69a139dd0.jpg" alt="陈皓林照片" class="w-full h-full object-contain bg-gray-100">
             </div>
             <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-lg shadow-lg">
               <div class="text-center">
@@ -291,31 +291,70 @@
         </div>
         
         <div class="max-w-3xl mx-auto">
-          <div class="relative">
-            <!-- 时间线 -->
-            <div class="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 transform md:translate-x-px"></div>
+          <!-- 教育经历主卡片 -->
+          <div class="bg-white rounded-xl shadow-md overflow-hidden">
+            <!-- 顶部：学校&时间 -->
+            <div class="bg-primary/5 p-6 border-b border-gray-100">
+              <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                <div>
+                  <h3 class="text-xl font-semibold">电子科技大学</h3>
+                  <p class="text-primary mt-1">软件工程（数字动漫） | 本科</p>
+                </div>
+                <p class="text-gray-500 mt-3 md:mt-0">2023年8月 - 2027年8月</p>
+              </div>
+              <p class="text-gray-600 mt-3">GPA: 3.8 | 专业排名: 17/88</p>
+            </div>
             
-            <!-- 大学教育（匹配简历信息） -->
-            <div class="relative pl-14 md:pl-0 mb-12 md:flex">
-              <div class="md:w-1/2 md:pr-8 md:text-right order-2 md:order-1 mt-4 md:mt-0">
-                <h3 class="text-xl font-semibold">电子科技大学</h3>
-                <p class="text-primary">软件工程（数字动漫） | 本科</p>
-                <p class="text-gray-600 mt-2">GPA: 3.8 | 专业排名: 17/88</p>
-                <p class="mt-3 text-gray-700">
-                  主修游戏开发与数字动漫方向，核心课程涵盖C++程序设计、图形与动画、计算机网络等；参与数字天空虚幻C++公开课程，获结课证书；担任虚幻工作室主席，组织游戏开发培训与项目实践。
+            <!-- 内容分块：课程、工作、荣誉、竞赛 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+              <!-- 课程与学习 -->
+              <div class="bg-gray-50 rounded-lg p-5">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-book text-primary text-xl mr-3"></i>
+                  <h4 class="font-semibold text-lg">主修与课程</h4>
+                </div>
+                <p class="text-gray-700">
+                  主攻游戏开发与数字动漫方向，核心课程涵盖：<br>
+                  C++程序设计、图形与动画、计算机网络等。
+                </p>
+                <p class="text-gray-700 mt-2">
+                  参与「数字天空虚幻C++公开课程」，获结课证书。
                 </p>
               </div>
               
-              <div class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center order-1 md:order-2">
-                <i class="fas fa-graduation-cap"></i>
+              <!-- 学生工作 -->
+              <div class="bg-gray-50 rounded-lg p-5">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-users text-primary text-xl mr-3"></i>
+                  <h4 class="font-semibold text-lg">学生工作</h4>
+                </div>
+                <p class="text-gray-700">
+                  担任<strong>虚幻工作室主席</strong>，组织游戏开发培训、项目实践，统筹团队技术分享与赛事协作。
+                </p>
               </div>
               
-              <div class="md:w-1/2 md:pl-8 hidden md:block order-3">
-                <p class="text-gray-500 font-medium">2023年8月 - 2027年8月</p>
+              <!-- 荣誉奖项 -->
+              <div class="bg-gray-50 rounded-lg p-5">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-trophy text-primary text-xl mr-3"></i>
+                  <h4 class="font-semibold text-lg">荣誉奖项</h4>
+                </div>
+                <ul class="text-gray-700 space-y-1">
+                  <li>国家励志奖学金</li>
+                  <li>校级优秀二等奖学金</li>
+                </ul>
               </div>
               
-              <div class="md:hidden order-1 text-gray-500 font-medium">
-                <p>2023年8月 - 2027年8月</p>
+              <!-- 竞赛成果 -->
+              <div class="bg-gray-50 rounded-lg p-5">
+                <div class="flex items-center mb-3">
+                  <i class="fas fa-award text-primary text-xl mr-3"></i>
+                  <h4 class="font-semibold text-lg">竞赛成果</h4>
+                </div>
+                <ul class="text-gray-700 space-y-1">
+                  <li>国家级竞赛三等奖</li>
+                  <li>省级竞赛三等奖</li>
+                </ul>
               </div>
             </div>
           </div>
@@ -323,134 +362,171 @@
       </div>
     </section>
 
-    <!-- 项目展示（所有链接指向project-details子文件夹，需与详情页文件名对应） -->
-    <section id="projects" class="section-padding bg-gray-50">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">项目作品</h2>
-          <div class="w-20 h-1 bg-primary mx-auto"></div>
-          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
-            参与开发的各类项目，包括游戏开发、可视化分析和科研项目等，均基于UE5、C++等核心技术实现
-          </p>
+<section id="projects" class="section-padding bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">项目作品</h2>
+      <div class="w-20 h-1 bg-primary mx-auto"></div>
+      <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+        参与开发的各类项目，包括游戏开发、可视化分析和科研项目等，均基于UE5、C++等核心技术实现
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- 项目1：《炼金之地》（工作室项目） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/12865781-910f-44eb-922d-75a9804ef79f.png" alt="《炼金之地》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- 项目1：《炼金之地》（工作室项目） -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-            <div class="h-48 overflow-hidden">
-              <img src="https://via.placeholder.com/400x300?text=炼金之地-炼金场景" alt="《炼金之地》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-semibold">《炼金之地》</h3>
-                <span class="text-sm text-gray-500">2024/01-2024/03</span>
-              </div>
-              <p class="text-gray-600 mb-4 text-sm">
-                3人小队队长，负责游戏策划、客户端UI交互、背包系统、地图搭建及开场CG制作，为三教杯优秀作品奖奠定基础。
-              </p>
-              <a href="project-details/alchemy-land.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">《炼金之地》</h3>
+            <span class="text-sm text-gray-500">2024/01-2024/03</span>
           </div>
-          
-          <!-- 项目2：《森林魔女》（三教杯-疯狂游戏） -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-            <div class="h-48 overflow-hidden">
-              <img src="https://via.placeholder.com/400x300?text=森林魔女-奇幻场景" alt="《森林魔女》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-semibold">《森林魔女》</h3>
-                <span class="text-sm text-gray-500">2023/11-2023/12</span>
-              </div>
-              <p class="text-gray-600 mb-4 text-sm">
-                4人小队队长，负责游戏流程策划、物品交互功能及全量UI设计实现，获三教杯游戏优秀作品奖。
-              </p>
-              <a href="project-details/forest-witch.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </div>
-          
-          <!-- 项目3：《机械守护》（三教杯-91act） -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-            <div class="h-48 overflow-hidden">
-              <img src="https://via.placeholder.com/400x300?text=机械守护-机甲场景" alt="《机械守护》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-semibold">《机械守护》</h3>
-                <span class="text-sm text-gray-500">2024/05-2024/06</span>
-              </div>
-              <p class="text-gray-600 mb-4 text-sm">
-                4人小队队长，主导关卡流程系统设计、物品功能交互及UI开发，三教杯参赛作品。
-              </p>
-              <a href="project-details/mechanical-guard.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </div>
-          
-          <!-- 项目4：《算数遗珍》（计算机设计大赛） -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-            <div class="h-48 overflow-hidden">
-              <img src="https://via.placeholder.com/400x300?text=算数遗珍-教育场景" alt="《算数遗珍》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-semibold">《算数遗珍》</h3>
-                <span class="text-sm text-gray-500">2024/04-2024/05</span>
-              </div>
-              <p class="text-gray-600 mb-4 text-sm">
-                5人小队队长，负责游戏流程策划、人物对话系统及关卡检测功能，获计算机设计大赛省级三等奖。
-              </p>
-              <a href="project-details/math-treasure.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </div>
-          
-          <!-- 项目5：OpenGL动画开发（个人项目） -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-            <div class="h-48 overflow-hidden">
-              <img src="https://via.placeholder.com/400x300?text=OpenGL-粒子效果" alt="OpenGL动画开发截图" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-semibold">OpenGL动画开发</h3>
-                <span class="text-sm text-gray-500">2025/03-2025/05</span>
-              </div>
-              <p class="text-gray-600 mb-4 text-sm">
-                个人项目，用C+++OpenGL实现弹性物理模拟、水面模拟、烟雾模拟及粒子系统，深化图形学理解。
-              </p>
-              <a href="project-details/opengl-animation.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </div>
-          
-          <!-- 项目6：智能交通强化学习（科研项目） -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
-            <div class="h-48 overflow-hidden">
-              <img src="https://via.placeholder.com/400x300?text=智能交通-AI模拟" alt="智能交通科研项目截图" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-            </div>
-            <div class="p-6">
-              <div class="flex justify-between items-start mb-3">
-                <h3 class="text-lg font-semibold">智能交通强化学习</h3>
-                <span class="text-sm text-gray-500">2025/07-2025/08</span>
-              </div>
-              <p class="text-gray-600 mb-4 text-sm">
-                科研项目，配置SUMO虚拟环境，实现智能体与环境交互，用PPO算法设计奖励机制，完成道路模拟。
-              </p>
-              <a href="project-details/traffic-ai.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
-                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-              </a>
-            </div>
-          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            3人小队队长，负责游戏策划、客户端UI交互、背包系统、地图搭建及开场CG制作，为三教杯优秀作品奖奠定基础。
+          </p>
+          <a href="project-details/alchemy-land.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
         </div>
       </div>
-    </section>
+      
+      <!-- 项目2：《森林魔女》（三教杯-疯狂游戏） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/5ce722bf-2e9e-4ecf-8018-90fda0b26c20.png" alt="《森林魔女》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">《森林魔女》</h3>
+            <span class="text-sm text-gray-500">2023/11-2023/12</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            4人小队队长，负责游戏流程策划、物品交互功能及全量UI设计实现，获三教杯游戏优秀作品奖。
+          </p>
+          <a href="project-details/forest-witch.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- 项目3：《机械守护》（三教杯-91act） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/6f7cc88b-e760-4bea-b56c-e849dc0d44e0.png" alt="《机械守护》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">《机械守护》</h3>
+            <span class="text-sm text-gray-500">2024/05-2024/06</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            4人小队队长，主导关卡流程系统设计、物品功能交互及UI开发，三教杯参赛作品。
+          </p>
+          <a href="project-details/mechanical-guard.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- 项目4：《考工溯衡》（计算机设计大赛） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/1.png" alt="《考工溯衡》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">《考工溯衡》</h3>
+            <span class="text-sm text-gray-500">2025/04-2025/07</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            5人小队队长，负责游戏流程策划、人物对话系统及关卡检测功能，获计算机设计大赛省级三等奖。
+          </p>
+          <a href="project-details/math-treasure.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- 项目5：OpenGL动画开发（个人项目） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/2655a19b-4739-44a8-b7dc-20fb1b4ae399.png" alt="OpenGL动画开发截图" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">OpenGL动画开发</h3>
+            <span class="text-sm text-gray-500">2025/03-2025/05</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            个人项目，用C++和OpenGL实现弹性物理模拟、水面模拟、烟雾模拟及粒子系统，深化图形学理解。
+          </p>
+          <a href="project-details/opengl-animation.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- 项目6：智能交通强化学习（科研项目） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/3e004ba8-3f99-49c5-a48d-ace19061181c.png" alt="智能交通科研项目截图" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">智能交通强化学习</h3>
+            <span class="text-sm text-gray-500">2025/07-2025/08</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            科研项目，配置SUMO虚拟环境，实现智能体与环境交互，用PPO算法设计奖励机制，完成道路模拟。
+          </p>
+          <a href="project-details/traffic-ai.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 新增项目7：《枪火对决》（竞技射击） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/gun_fire.png" alt="《枪火对决》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">《枪火对决》</h3>
+            <span class="text-sm text-gray-500">2024/09-2024/10</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            多人小队成员，负责枪械属性系统与场景互动机制开发，打造快节奏竞技射击体验。
+          </p>
+          <a href="project-details/gun-battle.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 新增项目8：《跳一跳》（休闲益智） -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+        <div class="h-48 overflow-hidden">
+          <img src="images/junp.png" alt="《跳一跳》游戏封面" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-3">
+            <h3 class="text-lg font-semibold">《跳一跳》</h3>
+            <span class="text-sm text-gray-500">2023/07-2023/08</span>
+          </div>
+          <p class="text-gray-600 mb-4 text-sm">
+            个人独立开发，基于物理引擎实现跳跃机制与分数结算系统，打造休闲益智类小游戏。
+          </p>
+          <a href="project-details/jump-game.html" class="inline-flex items-center text-primary hover:text-primary/80 text-sm font-medium">
+            查看详情 <i class="fas fa-arrow-right ml-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- 社团经历 -->
     <section id="experience" class="section-padding bg-white">

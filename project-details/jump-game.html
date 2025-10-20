@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《跳一跳》- 项目详情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            dark: '#1D2129',
+            light: '#F2F3F5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    }
+  </style>
+</head>
+
+<body class="bg-light font-sans text-dark">
+  <!-- 导航栏：返回根目录 -->
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-white"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </a>
+        </div>
+        
+        <div class="hidden md:flex space-x-8">
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+        </div>
+        
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 返回项目列表 -->
+      <div class="mb-8">
+        <a href="../index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i> 返回项目列表
+        </a>
+      </div>
+      
+      <!-- 项目标题（贴合简历个人项目时间线） -->
+      <div class="text-center mb-12">
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">《跳一跳》</h1>
+        <p class="text-gray-600">个人独立项目 | 2023/07-2023/08 | 独立开发</p>
+      </div>
+      
+      <!-- 项目封面 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
+        <img src="../images/jump/1.png" alt="《跳一跳》游戏封面" class="w-full h-auto">
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <!-- 项目主体内容（突出简历个人开发能力） -->
+        <div class="lg:col-span-2 space-y-10">
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">项目概述</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              《跳一跳》是休闲益智类单机小游戏，玩法参考经典“跳一跳”机制：玩家控制角色跳跃、攀爬，并可以收集得分，到达目的地。作为我早期个人项目，全程独立开发半个月，旨在实践“游戏物理机制”与“基础UI交互”的全流程实现，为后续复杂项目积累独立开发经验。
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              初次学习ue5，结合UE5蓝图快速验证物理逻辑，完成从“玩法构思”到“可玩Demo”的落地，同时自主设计简洁UI与分数结算系统<div class=""></div>
+          </section>
+          
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">我的职责（全流程独立开发）</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">物理跳跃机制实现：用UE5蓝图结合物理引擎，从0设计人物移动，镜头转动等逻辑，之后实现跳跃，多段跳跃以及贴墙吸附等逻辑。</p>
+              </li>
+
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">分数系统与UI开发：用UMG制作实时分数显示、游戏结束弹窗；通过设置一个actor作为收集奖励，触碰后消失来引导玩家进行收集物品得到分数</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">游戏截图</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/jump/2.png" alt="《跳一跳》游戏界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">游戏界面）</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- 侧边栏（贴合简历个人能力） -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目信息</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm text-gray-500 mb-1">项目类型</p>
+                <p>休闲小游戏</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">开发周期</p>
+                <p>半个月（2023/07-2023/08）</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">开发角色</p>
+                <p>独立开发者</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">核心目标</p>
+                <p>从0实践虚幻5的人物控制逻辑，并添加跳跃吸附等玩法完成游戏</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">技术栈（匹配简历技能）</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Unreal Engine 5</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE Blueprint</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE UMG</span>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">成果与收获（关联简历成长）</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>掌握UE5物理引擎基础应用，能独立设计简单游戏机制</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>提升“从0到1”独立开发能力，为后续项目铺垫</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>学习游戏体验优化思路，深化玩家视角思维</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">获取与联系（简历信息）</h3>
+            <a href="https://pan.baidu.com/s/1yh5M9Ra7F7pDdVH-R2AraA?pwd=sjaq" class="block w-full py-3 border border-gray-300 text-gray-700 rounded-lg text-center hover:bg-gray-50 transition-colors mb-4">
+              <i class="fas fa-download mr-2"></i> 下载游戏Demo
+            </a>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><i class="fas fa-phone mr-2 text-primary"></i> 联系电话：18568525203</p>
+              <p><i class="fas fa-envelope mr-2 text-primary"></i> 邮箱：1062237244@qq.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-primary"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </div>
+          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
+            <i class="fab fa-itch-io text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="联系邮箱">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 陈皓林. 专注UE5游戏开发，致力于打造优质玩家体验.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

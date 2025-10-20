@@ -3,13 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>《炼金之地》- 项目详情</title>
-  <!-- 引入Tailwind CSS -->
+  <title>《森林魔女》- 项目详情</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 引入Font Awesome图标 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Tailwind配置 -->
   <script>
     tailwind.config = {
       theme: {
@@ -30,45 +27,36 @@
   
   <style type="text/tailwindcss">
     @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .animate-fade-in {
-        animation: fadeIn 0.8s ease-in-out;
-      }
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+      .content-auto { content-visibility: auto; }
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     }
   </style>
 </head>
 
 <body class="bg-light font-sans text-dark">
-  <!-- 导航栏 -->
+  <!-- 导航栏：返回根目录首页 -->
   <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
-          <a href="index.html" class="flex items-center space-x-2">
+          <a href="../index.html" class="flex items-center space-x-2">
             <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-              <i class="fas fa-gamepad text-white"></i> <!-- 替换为游戏相关图标，贴合专业方向 -->
+              <i class="fas fa-gamepad text-white"></i>
             </div>
             <span class="font-bold text-lg">陈皓林</span>
           </a>
         </div>
         
-        <!-- 桌面导航 -->
         <div class="hidden md:flex space-x-8">
-          <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
-          <a href="index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
-          <a href="index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
-          <a href="index.html#projects" class="text-primary font-medium">项目</a>
-          <a href="index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
-          <a href="index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
         </div>
         
-        <!-- 移动端菜单按钮 -->
         <div class="md:hidden">
           <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
             <i class="fas fa-bars text-xl"></i>
@@ -77,55 +65,46 @@
       </div>
     </div>
     
-    <!-- 移动端导航菜单 -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
       <div class="container mx-auto px-4 py-3 space-y-3">
-        <a href="index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
-        <a href="index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
-        <a href="index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
-        <a href="index.html#projects" class="block text-primary font-medium py-2">项目</a>
-        <a href="index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
-        <a href="index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
       </div>
     </div>
   </nav>
 
-  <!-- 项目详情 -->
   <main class="pt-24 pb-16">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- 返回链接 -->
       <div class="mb-8">
-        <a href="index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+        <a href="../index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
           <i class="fas fa-arrow-left mr-2"></i> 返回项目列表
         </a>
       </div>
       
-      <!-- 项目标题（修正项目名称为简历中的《炼金之地》） -->
       <div class="text-center mb-12">
-        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">《炼金之地》</h1>
-        <p class="text-gray-600">工作室项目 | 2024/01-2024/03 | 3人小队（任队长）</p>
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">《森林魔女》</h1>
+        <p class="text-gray-600">三教杯比赛项目 | 2023/11-2023/12 | 4人小队（任队长）</p>
       </div>
       
-      <!-- 项目封面 -->
       <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
-        <img src="https://via.placeholder.com/1200x600?text=炼金之地-游戏封面（炼金主题场景）" alt="《炼金之地》游戏封面" class="w-full h-auto">
+        <img src="../images/5ce722bf-2e9e-4ecf-8018-90fda0b26c20.png" alt="《森林魔女》游戏封面" class="w-full h-auto">
       </div>
       
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <!-- 项目信息（左侧主体） -->
         <div class="lg:col-span-2 space-y-10">
-          <!-- 项目概述（补充简历中项目核心模块与技术关联） -->
           <section class="bg-white rounded-xl p-8 shadow-md">
             <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">项目概述</h2>
             <p class="text-gray-700 mb-4 leading-relaxed">
-              《炼金之地》是一款围绕“炼金合成”核心玩法的冒险游戏，玩家需在奇幻场景中收集材料、解锁炼金配方，并通过物品交互推动剧情，最终达成“修复世界元素平衡”的目标。项目为3人小队开发，作为队长全程主导，是我首次独立统筹中小型游戏模块开发的实践。
+              《森林魔女》是奇幻题材3D冒险解密游戏，玩家扮演自然魔法魔女，在森林中通过控制植物的生长或者衰老、并收集相应的道具获得不同的能力来抵达目的地，核心玩法为解谜+平台跳跃。作为三教杯疯狂游戏合作赛道参赛作品，4人小队10天完成开发，最终获优秀作品奖。
             </p>
             <p class="text-gray-700 leading-relaxed">
-              开发过程中，我结合《C++程序设计》《图形与动画》课程所学，将理论落地到实际模块：用C++实现底层逻辑，用UE5蓝图搭建交互流程，最终完成从“策划文档”到“可玩demo”的全流程交付，为后续参与“2024三教杯游戏比赛”并获优秀作品奖奠定了技术与协作基础。
-            </p>
+              我作为队长统筹分工，结合C++基础用UE5蓝图快速实现核心玩法，同时负责植物生长交互逻辑、任务系统、全量UI交等互逻辑，确保短周期内游戏可玩且美观。
           </section>
           
-          <!-- 我的职责（补充技术细节，贴合简历中的具体模块） -->
           <section class="bg-white rounded-xl p-8 shadow-md">
             <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">我的职责</h2>
             <ul class="space-y-4">
@@ -133,148 +112,89 @@
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">主导游戏策划：撰写核心玩法文档，定义“炼金合成”“材料收集”两大核心循环，明确3个章节的关卡目标</p>
+                <p class="text-gray-700">游戏流程策划：设计“森林入口→污染核心→精灵圣殿”3章节剧情，定义控制植物生长、攀爬、获取物品后飞行等核心操作</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">客户端UI交互开发：用UE5 UMG（Unreal Motion Graphics）搭建界面，结合C++实现“背包-物品-人物”的联动（如点击炼金材料触发合成弹窗）</p>
+                <p class="text-gray-700">物品交互开发：用UE5蓝图实现精灵对话、流程/任务提示、植物生长、道具拾取等操作</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">背包系统底层实现：用C++定义Item类与InventoryManager类，支持物品堆叠、分类（材料/成品/消耗品）、丢弃等功能，代码复用率达80%</p>
+                <p class="text-gray-700">全量UI设计实现：制作主界面、技能面板、剧情对话框，用UMG绑定暂停、重新开始等按钮事件</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
                   <i class="fas fa-check text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">存档点机制设计：通过UE5 SaveGame类实现“多档位存档”，支持玩家在关键节点（如炼金台、关卡终点）自动/手动保存，解决进度丢失问题</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700">地图搭建与优化：结合《图形与动画》课程的光照知识，用UE5地形工具搭建2个核心场景，调整材质参数减少Draw Call，保障帧率稳定在60fps以上</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700">后期内容交付：独立完成开场CG分镜与剪辑，用UE5 Sequencer制作剧情动画；开发人物对话系统，支持NPC分支对话触发（如持有特定炼金物品时解锁隐藏剧情）</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700">团队协调管理：根据3人分工（1名程序+1名美术+1名策划）制定周进度表，每日同步开发问题（如美术资源导入引擎后的碰撞体适配），确保项目按期交付</p>
+                <p class="text-gray-700">团队协调：制定1天策划、7开发、2天测试计划，每日同步进度恰当推进程序进度</p>
               </li>
             </ul>
           </section>
-          
-          <!-- 游戏截图（补充与职责匹配的截图描述） -->
+
           <section class="bg-white rounded-xl p-8 shadow-md">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">游戏截图</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-背包界面" alt="《炼金之地》背包系统界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">背包系统界面（展示材料分类与合成入口，C++底层逻辑+UMG UI实现）</p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-地图场景" alt="《炼金之地》地图场景" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">核心地图场景（UE5地形工具搭建，含存档点标识与可交互炼金台）</p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-合成界面" alt="《炼金之地》炼金合成界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">炼金合成界面（支持材料拖拽组合，触发C++定义的合成逻辑）</p>
-              </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-对话系统" alt="《炼金之地》人物对话系统" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">人物对话系统（展示分支选项，支持根据背包物品解锁隐藏剧情）</p>
-              </div>
-            </div>
+
           </section>
         </div>
-        
-        <!-- 侧边栏（补充简历关联信息） -->
+
         <div class="space-y-6">
-          <!-- 项目信息（修正团队规模与角色，贴合简历） -->
           <div class="bg-white rounded-xl p-6 shadow-md">
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目信息</h3>
             <div class="space-y-4">
               <div>
                 <p class="text-sm text-gray-500 mb-1">项目类型</p>
-                <p>炼金主题冒险游戏（PC端）</p>
+                <p>3D冒险解密游戏（比赛作品）</p>
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">开发周期</p>
-                <p>3个月（2024/01-2024/03）</p>
+                <p>10天（2023/11/22-12/01）</p>
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">团队规模</p>
-                <p>3人（1名程序+1名美术+1名策划）</p>
-              </div>
-              <div>
-                <p class="text-sm text-gray-500 mb-1">我的角色</p>
-                <p>队长 / 主程序 / 核心策划</p>
+                <p>4人（1策划+2程序+1美术）</p>
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">关联成果</p>
-                <p>为2024三教杯游戏优秀作品奖奠定基础</p>
+                <p>2024三教杯游戏优秀作品奖</p>
               </div>
             </div>
           </div>
           
-          <!-- 技术栈（基于简历技能补充，去除无关工具） -->
           <div class="bg-white rounded-xl p-6 shadow-md">
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">技术栈</h3>
             <div class="flex flex-wrap gap-2">
               <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Unreal Engine 5</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">C++</span>
               <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE Blueprint</span>
               <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE UMG</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE Sequencer</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Git（协作工具）</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">c++</span>
             </div>
           </div>
           
-          <!-- 成果与收获（结合简历技能成长与后续竞赛） -->
           <div class="bg-white rounded-xl p-6 shadow-md">
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">成果与收获</h3>
             <ul class="space-y-2">
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>独立完成5个核心模块开发，掌握UE5中C++与蓝图的混合调用逻辑</span>
+                <span>短周期内完成游戏从0到1开发，提升UE5蓝图快速迭代能力</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>通过队长角色锻炼项目统筹能力，学会根据团队成员优势分配任务</span>
+                <span>学习3D游戏美术资源与引擎适配技巧，熟悉资源导入流程</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>将《图形与动画》《C++程序设计》课程知识落地，提升技术应用能力</span>
-              </li>
-              <li class="flex items-start text-sm">
-                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>项目开发经验直接支撑后续参与“三教杯”并获游戏优秀作品奖</span>
-              </li>
-              <li class="flex items-start text-sm">
-                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>积累“从0到1”的游戏开发流程经验，明确个人在“UE5客户端开发”的职业方向</span>
+                <span>锻炼团队协作与时间管理能力，10天内高效完成比赛作品</span>
               </li>
             </ul>
           </div>
           
-          <!-- 下载与联系（补充简历中的联系方式） -->
           <div class="bg-white rounded-xl p-6 shadow-md">
             <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">获取与联系</h3>
-            <a href="#" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-3">
-              <i class="fas fa-download mr-2"></i> 下载游戏Demo
-            </a>
-            <a href="#" class="block w-full py-3 border border-gray-300 text-gray-700 rounded-lg text-center hover:bg-gray-50 transition-colors mb-4">
-              <i class="fas fa-code mr-2"></i> 查看核心模块代码
+            <a href="https://www.bilibili.com/video/BV1xb4y1K7dk/?spm_id_from=333.337.search-card.all.click&vd_source=be09ec9fdc81b1a98dd34e071782970a" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-3">
+                <i class="fas fa-download mr-2"></i> 查看游戏Demo（比赛时剪辑娱乐的、原素材找不到了）
             </a>
             <div class="text-sm text-gray-600">
               <p class="mb-1"><i class="fas fa-phone mr-2 text-primary"></i> 联系电话：18568525203</p>
@@ -286,7 +206,6 @@
     </div>
   </main>
 
-  <!-- 页脚（补充个人专业标签） -->
   <footer class="bg-dark text-white py-12">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
@@ -305,7 +224,7 @@
             <i class="fab fa-github text-xl"></i>
           </a>
           <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
-            <i class="fab fa-itch-io text-xl"></i> <!-- 加入游戏开发者常用平台图标 -->
+            <i class="fab fa-itch-io text-xl"></i>
           </a>
           <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
             <i class="fab fa-linkedin text-xl"></i>
@@ -323,15 +242,10 @@
   </footer>
 
   <script>
-    // 移动端菜单切换
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // 导航栏滚动效果
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -342,14 +256,7 @@
         navbar.classList.add('shadow-sm');
       }
     });
-    
-    // 滚动动画
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -357,11 +264,8 @@
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
-    
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
   </script>
 </body>
 </html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《枪火对决》- 项目详情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            dark: '#1D2129',
+            light: '#F2F3F5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    }
+  </style>
+</head>
+
+<body class="bg-light font-sans text-dark">
+  <!-- 导航栏：返回根目录（贴合整体路径逻辑） -->
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-white"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </a>
+        </div>
+        
+        <div class="hidden md:flex space-x-8">
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+        </div>
+        
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 返回项目列表 -->
+      <div class="mb-8">
+        <a href="../index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i> 返回项目列表
+        </a>
+      </div>
+      
+      <!-- 项目标题（贴合简历时间线） -->
+      <div class="text-center mb-12">
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">《枪火对决》</h1>
+        <p class="text-gray-600">个人项目 | 2024/09-2024/10</p>
+      </div>
+      
+      <!-- 项目封面 -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
+        <img src="../images/gun_fire.png" alt="《枪火对决》游戏封面" class="w-full h-auto">
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <!-- 项目主体内容（突出简历技能：UE5、C++、团队协作） -->
+        <div class="lg:col-span-2 space-y-10">
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">项目概述</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              《枪火对决》是快节奏竞技射击游戏，支持团队对抗和撤离模式，玩家可在场景中击杀对方ai即可获胜，核心玩法为。项目为虚幻工作室内部协作项目，个人项目，旨在实践射击游戏基础交互逻辑与战斗系统设计。
+            </p>
+          </section>
+          
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">涉及内容</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">编写射击系统包括模拟枪械，设置弹夹子弹数量，瞄准射击等，给人物设置血条，添加受击反馈。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">设置ai行为树，使得ai可以寻找玩家进行射击</p>
+              </li>
+                <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">制作ui界面和任务系统，控制游戏进度</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">游戏截图</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/gun/1c5fd8b3-b964-469a-8ac5-2a1ca1c1fa27.png" alt="《枪火对决》战斗场景" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">战斗场景）</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- 侧边栏（贴合简历技能与经历） -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目信息</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm text-gray-500 mb-1">项目类型</p>
+                <p>射击游戏</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">开发周期</p>
+                <p>1.5个月（2024/09-2024/10）</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">团队规模</p>
+                <p>个人项目</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">技术栈（匹配简历技能）</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Unreal Engine 5</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">C++</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE Blueprint</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE UMG</span>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">成果与收获（关联简历能力）</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>深化UE5中蓝图开发能力，实现复杂战斗系统逻辑</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>设计第一款射击类游戏，学习到了此类游戏的开发思路和方法</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>积累多人游戏基础开发经验，为后续复杂项目奠定交互逻辑基础</span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">获取与联系（简历信息）</h3>
+            <a href="https://pan.baidu.com/s/1oaaJ9eIheN6TKO-HlvKqiw?pwd=fk85" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-3">
+                <i class="fas fa-download mr-2"></i> 下载游戏
+            </a>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><i class="fas fa-phone mr-2 text-primary"></i> 联系电话：18568525203</p>
+              <p><i class="fas fa-envelope mr-2 text-primary"></i> 邮箱：1062237244@qq.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-primary"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </div>
+          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+        </div>
+        
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
+            <i class="fab fa-itch-io text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="联系邮箱">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 陈皓林. 专注UE5游戏开发，致力于打造优质玩家体验.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
