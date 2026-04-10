@@ -1,0 +1,38 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#020617"/>
+  <circle cx="1180" cy="180" r="2" fill="#F8FAFC"/>
+  <circle cx="1310" cy="260" r="3" fill="#E2E8F0"/>
+  <circle cx="1400" cy="120" r="2" fill="#CBD5E1"/>
+  <circle cx="1260" cy="420" r="2" fill="#F8FAFC"/>
+  <circle cx="1030" cy="110" r="2" fill="#E2E8F0"/>
+  <circle cx="260" cy="180" r="4" fill="#F8FAFC"/>
+  <circle cx="360" cy="110" r="3" fill="#CBD5E1"/>
+  <circle cx="480" cy="220" r="2" fill="#E2E8F0"/>
+  <circle cx="220" cy="420" r="2" fill="#F8FAFC"/>
+  <circle cx="520" cy="510" r="3" fill="#CBD5E1"/>
+  <circle cx="800" cy="450" r="120" fill="url(#sunGlow)"/>
+  <circle cx="800" cy="450" r="58" fill="#F59E0B"/>
+  <circle cx="800" cy="450" r="38" fill="#FDE68A"/>
+  <ellipse cx="800" cy="450" rx="170" ry="85" stroke="#1E293B" stroke-width="2"/>
+  <ellipse cx="800" cy="450" rx="270" ry="135" stroke="#23304A" stroke-width="2"/>
+  <ellipse cx="800" cy="450" rx="380" ry="190" stroke="#2C3D5E" stroke-width="2"/>
+  <ellipse cx="800" cy="450" rx="500" ry="250" stroke="#334155" stroke-width="2"/>
+  <circle cx="965" cy="449" r="12" fill="#94A3B8"/>
+  <circle cx="1068" cy="449" r="18" fill="#22C55E"/>
+  <circle cx="1180" cy="449" r="22" fill="#0EA5E9"/>
+  <circle cx="1295" cy="449" r="17" fill="#F97316"/>
+  <circle cx="1410" cy="449" r="34" fill="#EAB308"/>
+  <g opacity="0.85">
+    <circle cx="1410" cy="449" r="54" stroke="#C084FC" stroke-width="10"/>
+  </g>
+  <circle cx="270" cy="690" r="120" fill="#7C3AED" opacity="0.18"/>
+  <circle cx="1330" cy="720" r="150" fill="#0EA5E9" opacity="0.14"/>
+  <text x="120" y="700" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">Planetary System</text>
+  <text x="120" y="770" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="30">RhSLข"๛กฦษหอ</text>
+  <defs>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 450) rotate(90) scale(120)">
+      <stop stop-color="#FDE68A" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#FDE68A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,0 +1,16 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="32" fill="#020617"/>
+  <circle cx="600" cy="360" r="90" fill="#F59E0B"/>
+  <circle cx="600" cy="360" r="52" fill="#FDE68A"/>
+  <ellipse cx="600" cy="360" rx="170" ry="84" stroke="#334155" stroke-width="3"/>
+  <ellipse cx="600" cy="360" rx="270" ry="134" stroke="#475569" stroke-width="3"/>
+  <ellipse cx="600" cy="360" rx="380" ry="190" stroke="#64748B" stroke-width="3"/>
+  <circle cx="764" cy="360" r="14" fill="#A78BFA"/>
+  <circle cx="868" cy="360" r="18" fill="#22C55E"/>
+  <circle cx="980" cy="360" r="24" fill="#0EA5E9"/>
+  <text x="70" y="110" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700">hSÓ„:</text>
+  <text x="70" y="165" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">-ÃRÐ››ýÏhS€€ù”ôN„)¦¯ƒ</text>
+  <text x="770" y="330" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22">…§hS</text>
+  <text x="875" y="330" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22">œE&DÑ</text>
+  <text x="985" y="330" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22">§hS</text>
+</svg>

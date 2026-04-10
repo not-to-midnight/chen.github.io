@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能交通强化学习 - 项目详情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            dark: '#1D2129',
+            light: '#F2F3F5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    }
+  </style>
+</head>
+
+<body class="bg-light font-sans text-dark">
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-white"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <a href="../index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i> 返回项目列表
+        </a>
+      </div>
+
+      <div class="text-center mb-12">
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">智能交通强化学习科研项目</h1>
+        <p class="text-gray-600">科研项目 | 2025/07-2025/08 | 团队协作</p>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
+        <img src="../images/ai/cover.png" alt="智能交通强化学习项目封面" class="w-full h-auto">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2 space-y-10">
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">项目概述</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              项目聚焦“城市道路通行效率优化”，基于 SUMO 交通仿真平台搭建虚拟路网，并结合强化学习方法训练智能体，对信号控制与道路通行策略进行动态优化。
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              我主要参与环境配置、智能体交互逻辑和 PPO 算法训练流程的实现，帮助团队形成“仿真环境 - 状态建模 - 策略训练 - 效果评估”的完整实验闭环，为后续科研分析提供可复用的实验基础。
+            </p>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">我的职责</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">配置 SUMO 本地仿真环境与 Python 训练流程，打通仿真端和算法端的数据交互。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">设计智能体状态输入和动作输出逻辑，处理路口车辆通行、车道选择与控制策略映射。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">尝试接入 PPO 模型并设计奖励机制，用平均等待时间、车辆排队长度等指标评估训练效果。</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">项目截图</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/ai/gallery/training-curve.png" alt="PPO算法奖励曲线" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">PPO 训练过程中的奖励变化趋势，用于观察策略是否逐步收敛。</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目信息</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm text-gray-500 mb-1">项目类型</p>
+                <p>智能交通与强化学习科研项目</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">开发周期</p>
+                <p>1个月（2025/07-2025/08）</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">团队规模</p>
+                <p>4人协作</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">目标问题</p>
+                <p>提升路口通行效率并降低拥堵程度</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">技术栈</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Python</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">SUMO</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">PyTorch</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">PPO</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">成果与收获</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>理解强化学习在交通调度问题中的建模方式与训练流程。</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>熟悉仿真环境、状态空间、动作空间和奖励机制之间的关系。</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>积累了科研协作、实验复现与可视化分析的实践经验。</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">获取与联系</h3>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><i class="fas fa-phone mr-2 text-primary"></i> 联系电话：18568525203</p>
+              <p><i class="fas fa-envelope mr-2 text-primary"></i> 邮箱：1062237244@qq.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-primary"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </div>
+          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+        </div>
+
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
+            <i class="fab fa-itch-io text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="mailto:1062237244@qq.com" class="text-gray-400 hover:text-white transition-colors" title="联系邮箱">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 陈皓林. 专注UE5游戏开发，致力于打造优质玩家体验.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

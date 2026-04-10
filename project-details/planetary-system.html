@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>行星系统介绍页 - 专题网页</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#7C3AED',
+            dark: '#0F172A',
+            light: '#F4F7FB'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      .space-card { @apply bg-white rounded-2xl shadow-md p-8; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-light font-sans text-dark">
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+              <i class="fas fa-star text-white"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <a href="../index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i> 返回项目列表
+        </a>
+      </div>
+
+      <div class="text-center mb-12">
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">行星系统介绍页</h1>
+        <p class="text-gray-600">专题网页 | 2026/04 | 科普展示设计</p>
+      </div>
+
+      <div class="bg-slate-950 rounded-2xl overflow-hidden shadow-md mb-12">
+        <img src="../images/planetary-system/cover.svg" alt="行星系统介绍页封面" class="w-full h-auto">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2 space-y-10">
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">主题概述</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              本页围绕“行星系统”展开介绍，使用太阳系作为用户最熟悉的案例，帮助读者快速理解恒星、行星、卫星、小行星带和宜居带之间的关系。
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              页面内容兼顾可读性和展示感，适合用作科普专题页、课程展示页，或作为未来扩展为交互式宇宙主题网页的视觉基础。
+            </p>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">行星系统的基本组成</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-sun text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">中心恒星是整个系统的能量来源，也是大多数天体公转的核心引力中心。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-globe text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">行星按照轨道分布在不同距离上，温度、体积和组成成分也会随着距离变化而发生明显差异。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-meteor text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">小行星、彗星和尘埃带记录了恒星系统形成早期留下的物质信息。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-satellite text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">卫星系统则进一步丰富了行星周围的结构，是研究潮汐、轨道稳定性和生命条件的重要对象。</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">典型行星类型</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">类地行星</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  体积较小、密度较高，主要由岩石和金属构成，例如水星、金星、地球和火星。
+                </p>
+              </div>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">气态巨行星</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  通常拥有更大的质量和更厚的大气层，木星和土星是太阳系中的代表。
+                </p>
+              </div>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">冰巨行星</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  天王星和海王星富含挥发性物质，外观颜色和大气结构都具有鲜明特征。
+                </p>
+              </div>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">系外行星</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  这些行星位于太阳系之外，是现代天文学研究行星系统演化和潜在宜居性的关键对象。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">页面配图</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/planetary-system/gallery/orbit-structure.svg" alt="行星轨道结构示意图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">轨道结构图，用来快速说明行星与中心恒星的层级关系。</p>
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/planetary-system/gallery/planet-types.svg" alt="行星类型对比图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">行星类型对比图，适合展示类地行星与巨行星之间的差异。</p>
+              </div>
+              <div class="rounded-lg overflow-hidden md:col-span-2">
+                <img src="../images/planetary-system/gallery/exploration-timeline.svg" alt="行星探索时间线" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">探索时间线，用于连接知识介绍和航天任务背景。</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="space-y-6">
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">页面信息</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm text-gray-500 mb-1">页面类型</p>
+                <p>行星系统科普专题页</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">内容定位</p>
+                <p>教育展示 / 科普浏览 / 视觉化介绍</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">适用人群</p>
+                <p>课程展示、天文兴趣用户、网页设计作品集</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">文件命名</p>
+                <p><code class="text-primary">planetary-system.html</code> + <code class="text-primary">images/planetary-system/</code></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">页面亮点</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>结构沿用当前站点详情页模板，风格统一，方便继续扩展。</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>图片统一放在独立目录下，封面图和详情配图分离，后续替换更方便。</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span>内容偏科普说明型，适合继续加入动画、滚动特效或交互式轨道展示。</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">资源组织建议</h3>
+            <div class="text-sm text-gray-700 space-y-3">
+              <p>封面图统一放在 <code class="text-primary">images/planetary-system/cover.*</code>。</p>
+              <p>详情页配图统一放在 <code class="text-primary">images/planetary-system/gallery/</code>。</p>
+              <p>后续如果增加视频或动态图，可以继续扩展 <code class="text-primary">videos/planetary-system/</code> 或 <code class="text-primary">images/planetary-system/interactive/</code>。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+              <i class="fas fa-star text-primary"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </div>
+          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+        </div>
+
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
+            <i class="fab fa-itch-io text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="mailto:1062237244@qq.com" class="text-gray-400 hover:text-white transition-colors" title="联系邮箱">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 陈皓林. 专注UE5游戏开发，致力于打造优质玩家体验.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+    document.querySelectorAll('section').forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
