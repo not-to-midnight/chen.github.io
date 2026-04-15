@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>《炼金之地》- 项目详情</title>
-  <!-- 引入Tailwind CSS -->
+  <title>2D老师与对话系统开发总结 - 教学表现系统</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 引入Font Awesome图标 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Tailwind配置 -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             primary: '#165DFF',
-            secondary: '#36CFC9',
-            dark: '#1D2129',
-            light: '#F2F3F5'
+            secondary: '#7C3AED',
+            dark: '#0F172A',
+            light: '#F4F7FB'
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -27,15 +25,11 @@
       }
     }
   </script>
-  
+
   <style type="text/tailwindcss">
     @layer utilities {
-      .content-auto {
-        content-visibility: auto;
-      }
-      .animate-fade-in {
-        animation: fadeIn 0.8s ease-in-out;
-      }
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      .space-card { @apply bg-white rounded-2xl shadow-md p-8; }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
@@ -45,30 +39,27 @@
 </head>
 
 <body class="bg-light font-sans text-dark">
-  <!-- 导航栏 -->
   <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center">
-          <a href="index.html" class="flex items-center space-x-2">
+          <a href="../index.html" class="flex items-center space-x-2">
             <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-              <i class="fas fa-gamepad text-white"></i> <!-- 替换为游戏相关图标，贴合专业方向 -->
+              <i class="fas fa-chalkboard-teacher text-white"></i>
             </div>
             <span class="font-bold text-lg">陈皓林</span>
           </a>
         </div>
-        
-        <!-- 桌面导航 -->
+
         <div class="hidden md:flex space-x-8">
-          <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
-          <a href="index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
-          <a href="index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
-          <a href="index.html#projects" class="text-primary font-medium">项目</a>
-          <a href="index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
-          <a href="index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#projects" class="text-primary font-medium">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
         </div>
-        
-        <!-- 移动端菜单按钮 -->
+
         <div class="md:hidden">
           <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
             <i class="fas fa-bars text-xl"></i>
@@ -76,209 +67,350 @@
         </div>
       </div>
     </div>
-    
-    <!-- 移动端导航菜单 -->
+
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
       <div class="container mx-auto px-4 py-3 space-y-3">
-        <a href="index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
-        <a href="index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
-        <a href="index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
-        <a href="index.html#projects" class="block text-primary font-medium py-2">项目</a>
-        <a href="index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
-        <a href="index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#projects" class="block text-primary font-medium py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
       </div>
     </div>
   </nav>
 
-  <!-- 项目详情 -->
   <main class="pt-24 pb-16">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- 返回链接 -->
       <div class="mb-8">
-        <a href="index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+        <a href="../index.html#projects" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
           <i class="fas fa-arrow-left mr-2"></i> 返回项目列表
         </a>
       </div>
-      
-      <!-- 项目标题（修正项目名称为简历中的《炼金之地》） -->
+
       <div class="text-center mb-12">
-        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">《炼金之地》</h1>
-        <p class="text-gray-600">工作室项目 | 2024/01-2024/03 | 3人小队（任队长）</p>
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">2D老师与对话系统开发总结</h1>
+        <p class="text-gray-600">教学表现系统 | 2025/12-2026/02 | 对话图驱动与角色动作联动设计</p>
       </div>
-      
-      <!-- 项目封面 -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
-        <img src="https://via.placeholder.com/1200x600?text=炼金之地-游戏封面（炼金主题场景）" alt="《炼金之地》游戏封面" class="w-full h-auto">
+
+      <div class="bg-slate-950 rounded-2xl overflow-hidden shadow-md mb-12">
+        <img src="../images/2Dteacher/cover.svg" alt="2D老师与对话系统封面" class="w-full h-auto">
       </div>
-      
+
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <!-- 项目信息（左侧主体） -->
         <div class="lg:col-span-2 space-y-10">
-          <!-- 项目概述（补充简历中项目核心模块与技术关联） -->
-          <section class="bg-white rounded-xl p-8 shadow-md">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">项目概述</h2>
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">系统概述</h2>
             <p class="text-gray-700 mb-4 leading-relaxed">
-              《炼金之地》是一款围绕“炼金合成”核心玩法的冒险游戏，玩家需在奇幻场景中收集材料、解锁炼金配方，并通过物品交互推动剧情，最终达成“修复世界元素平衡”的目标。项目为3人小队开发，作为队长全程主导，是我首次独立统筹中小型游戏模块开发的实践。
+              这个项目把 <strong>2D 老师系统</strong> 和 <strong>对话系统</strong> 视为一个统一的“教学表现系统”来理解。对话系统负责推进叙事、节点状态和分支逻辑，2D 老师系统负责角色动作、讲解节奏和情绪表现，两者通过节点参数、动作参数或事件桥接来联动。
             </p>
             <p class="text-gray-700 leading-relaxed">
-              开发过程中，我结合《C++程序设计》《图形与动画》课程所学，将理论落地到实际模块：用C++实现底层逻辑，用UE5蓝图搭建交互流程，最终完成从“策划文档”到“可玩demo”的全流程交付，为后续参与“2024三教杯游戏比赛”并获优秀作品奖奠定了技术与协作基础。
+              当前代码中，这两套能力都已经具备较完整的基础实现，但还没有完全硬接在一起。也正因为如此，这个项目的重点不只是“做了什么”，更在于说明现有架构如何自然演进成一个适用于教学、讲解和问答引导的互动对话表现框架。
             </p>
           </section>
-          
-          <!-- 我的职责（补充技术细节，贴合简历中的具体模块） -->
-          <section class="bg-white rounded-xl p-8 shadow-md">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">我的职责</h2>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">当前系统边界</h2>
             <ul class="space-y-4">
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
+                  <i class="fas fa-layer-group text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">主导游戏策划：撰写核心玩法文档，定义“炼金合成”“材料收集”两大核心循环，明确3个章节的关卡目标</p>
+                <p class="text-gray-700">两套系统当前是并列存在的独立模块，架构兼容，但代码层尚未直接互相 import 调用。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
+                  <i class="fas fa-code-branch text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">客户端UI交互开发：用UE5 UMG（Unreal Motion Graphics）搭建界面，结合C++实现“背包-物品-人物”的联动（如点击炼金材料触发合成弹窗）</p>
+                <p class="text-gray-700">对话数据结构已经预留了 `animation`、`emotion`、`actions` 等字段，说明后续联动并不需要推翻现有设计。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
+                  <i class="fas fa-broadcast-tower text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">背包系统底层实现：用C++定义Item类与InventoryManager类，支持物品堆叠、分类（材料/成品/消耗品）、丢弃等功能，代码复用率达80%</p>
+                <p class="text-gray-700">事件系统已经提供了 `NodeStarted`、`DialogueStarted`、`DialogueEnded` 等天然桥接点，适合做低耦合联动。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
+                  <i class="fas fa-lightbulb text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">存档点机制设计：通过UE5 SaveGame类实现“多档位存档”，支持玩家在关键节点（如炼金台、关卡终点）自动/手动保存，解决进度丢失问题</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700">地图搭建与优化：结合《图形与动画》课程的光照知识，用UE5地形工具搭建2个核心场景，调整材质参数减少Draw Call，保障帧率稳定在60fps以上</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700">后期内容交付：独立完成开场CG分镜与剪辑，用UE5 Sequencer制作剧情动画；开发人物对话系统，支持NPC分支对话触发（如持有特定炼金物品时解锁隐藏剧情）</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-check text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700">团队协调管理：根据3人分工（1名程序+1名美术+1名策划）制定周进度表，每日同步开发问题（如美术资源导入引擎后的碰撞体适配），确保项目按期交付</p>
+                <p class="text-gray-700">从工程阶段看，这属于“架构上已兼容，业务上待接线”的状态，非常适合在文档与答辩中强调设计前瞻性。</p>
               </li>
             </ul>
           </section>
-          
-          <!-- 游戏截图（补充与职责匹配的截图描述） -->
-          <section class="bg-white rounded-xl p-8 shadow-md">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">游戏截图</h2>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">对话系统的关键点</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-背包界面" alt="《炼金之地》背包系统界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">背包系统界面（展示材料分类与合成入口，C++底层逻辑+UMG UI实现）</p>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">数据驱动节点图</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  对话系统的核心不是简单显示文本，而是由 `DialogueData`、`DialogueNode`、`DialogueChoice` 组成的有向节点图。节点通过 `nextNodeId` 和选项跳转形成完整流程。
+                </p>
               </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-地图场景" alt="《炼金之地》地图场景" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">核心地图场景（UE5地形工具搭建，含存档点标识与可交互炼金台）</p>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">“注册 node” 的真实含义</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  当前并没有注册节点类型的机制，真正被注册的是整段对话资源。`json.nodes` 会被转换成 `Map&lt;string, DialogueNode&gt;`，由 `DialogueManager` 在运行时查找和推进。
+                </p>
               </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-合成界面" alt="《炼金之地》炼金合成界面" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">炼金合成界面（支持材料拖拽组合，触发C++定义的合成逻辑）</p>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">运行时状态机</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  `DialogueManager` 统一管理 `_dialogues`、`_currentNode`、`_state`、`_history` 等状态，使对话具备资源仓库、状态机和节点调度器三重职责。
+                </p>
               </div>
-              <div class="rounded-lg overflow-hidden">
-                <img src="https://via.placeholder.com/600x400?text=炼金之地-对话系统" alt="《炼金之地》人物对话系统" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">人物对话系统（展示分支选项，支持根据背包物品解锁隐藏剧情）</p>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">动作接口已预留</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  `ActionType.PLAY_ANIMATION` 已经存在，这意味着“对话控制老师动作”并不是新增系统，而是把已有预留接口真正接到 `teacher2DService` 上。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">2D老师系统的关键点</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">数据层 `teacher2DData`</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  通过 `Animation2DType`、`Animation2DMode` 和默认配置表，构建了一套动作词典。对话层只需要传递语义化动作，不需要关心底层动画名。
+                </p>
+              </div>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">服务层 `teacher2DService`</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  统一对外提供播放接口，保存当前动画状态，并把请求转发给真正的动画控制器，是老师系统的唯一调用入口。
+                </p>
+              </div>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">表现层 `teacher2DItem`</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  挂在场景节点上，负责把 `cc.Animation` 或 `sp.Skeleton` 适配为统一接口，让服务层不被底层引擎组件耦死。
+                </p>
+              </div>
+              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
+                <h3 class="font-semibold text-lg mb-2">联动意义</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                  对话系统并不需要知道老师是帧动画还是 Spine，只需要告诉服务层“播放哪种动作”，这使后续联动保持轻量且可扩展。
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">推荐联动方案</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              结合现有实现，我更推荐把这个项目描述为“节点字段 + 动作系统并存”的最终工程方案。`node.animation` 用来描述节点的默认表现动作，`actions.playAnimation` 用来表达额外触发的一次性动作，这样既保留了配置直观性，也兼顾了扩展能力。
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-link text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700"><strong>推荐接线点一：</strong>`NodeStarted`。增加 `DialogueTeacher2DBridge` 监听节点进入，读取 `node.animation` 并映射到 `Animation2DType`，这是最轻量、最符合现有架构的方案。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-bolt text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700"><strong>推荐接线点二：</strong>`executePlayAnimation`。在动作系统里真正实现 `PLAY_ANIMATION`，适合处理选项点击、奖励反馈和特殊强调动作。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-table-cells text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700"><strong>推荐映射方式：</strong>使用字符串映射表，例如 `"talk"` 对应 `Animation2DType.TALK`，既方便策划配置，也便于后期统一维护。</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">实际界面效果</h2>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              下面两张图展示了当前系统在实际项目里的界面表现：一张体现带选项分支的对话场景，另一张体现继续推进时的基础讲解界面。它们能够直接说明“对话内容 + 老师表现”这个统一系统的使用场景。
+            </p>
+            <div class="grid grid-cols-1 gap-6">
+              <div class="rounded-lg overflow-hidden border border-gray-100">
+                <img src="../images/2Dteacher/image/76566a92-2e23-42fa-9219-53608a379634.png" alt="2D老师与对话系统选项界面" class="w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2 px-1">带选项分支的商店对话界面：右侧老师角色负责表现，底部对话框负责文本展示，右上角选项区负责分支跳转。</p>
+              </div>
+              <div class="rounded-lg overflow-hidden border border-gray-100">
+                <img src="../images/2Dteacher/image/70c02e54e8c95f500bbf1db5c818dd4b.png" alt="2D老师与对话系统继续对话界面" class="w-full h-auto">
+                <p class="text-sm text-gray-500 mt-2 px-1">基础推进界面：当节点没有选项时，系统通过继续按钮或自动播放推动下一个节点，老师角色则保持讲解态或待机态。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">流程图展示</h2>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              下方流程图直接基于你提供的 Mermaid 代码接入页面，用来把架构、节点注册过程以及对话与老师动作联动方案可视化展示出来。
+            </p>
+            <div class="space-y-8">
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">统一系统总体架构图</h3>
+                <div class="mermaid">
+flowchart TB
+    subgraph 数据层
+        DD[DialogueData / DialogueNode / DialogueChoice]
+        TD[teacher2DData / Animation2DConfig]
+    end
+
+    subgraph 逻辑层
+        DM[DialogueManager]
+        DC[DialogueConditionManager]
+        DA[DialogueActionManager]
+        TS[teacher2DService]
+    end
+
+    subgraph 表现层
+        DUI[DialogueUI]
+        TItem[teacher2DItem]
+    end
+
+    subgraph 桥接层
+        EV[EventManager]
+        NS[Events.NodeStarted]
+        PA[ActionType.PLAY_ANIMATION]
+    end
+
+    DD --> DM
+    DM --> DC
+    DM --> DA
+    DM --> EV
+    EV --> DUI
+    TD --> TS
+    TS --> TItem
+    NS --> TS
+    PA --> TS
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这张图强调的是统一系统的层次划分。对话数据和老师动画配置分别作为数据源进入逻辑层，再由 UI、角色组件和事件系统协同完成“讲什么”和“怎么讲”的组合表现。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">对话加载与节点注册流程</h3>
+                <div class="mermaid">
+flowchart TD
+    A[外部 JSON 对话数据] --> B[DialogueManager.loadDialogue]
+    B --> C[DialogueDataImpl.fromJSON]
+    C --> D[把 json.nodes 转成 Map&lt;string, DialogueNode&gt;]
+    D --> E[DialogueDataImpl.validate]
+    E --> F{校验通过?}
+    F -->|否| G[输出错误并返回 null]
+    F -->|是| H[存入 _dialogues: Map&lt;string, DialogueData&gt;]
+    H --> I[RaiseEvent DialogueLoaded]
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这里解释了你文档里提到的“注册 node”到底是什么。系统并不是注册节点类型，而是把整段对话资源加载进 `DialogueManager`，并把节点表构造成可检索的 `Map`，供运行时按 `id` 推进。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">2D老师播放链路</h3>
+                <div class="mermaid">
+flowchart TD
+    A[外部调用 teacher2DService.playAnimation] --> B[根据 Animation2DType 查配置]
+    B --> C{配置存在?}
+    C -->|否| Z1[返回 false]
+    C -->|是| D{animationController 已注入?}
+    D -->|否| Z2[返回 false]
+    D -->|是| E[更新 animationState]
+    E --> F[调用 controller.playAnimation]
+    F --> G{当前模式}
+    G -->|cc.Animation| H[buildCocosAnimController]
+    G -->|sp.Skeleton| I[buildSpineController]
+    H --> J[真正播放动画]
+    I --> J
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这张图说明老师系统为什么适合被对话系统接入。服务层只负责接收动作语义并转发给控制器，底层到底是 `cc.Animation` 还是 `sp.Skeleton`，对外部调用方来说都是透明的。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">节点参数驱动老师动作</h3>
+                <div class="mermaid">
+flowchart TD
+    A[DialogueManager.playNode node] --> B[RaiseEvent NodeStarted node]
+    B --> C[DialogueUI.showNode node]
+    B --> D[DialogueTeacher2DBridge.onNodeStarted]
+    D --> E{node.animation 存在?}
+    E -->|否| F[不处理]
+    E -->|是| G[字符串映射到 Animation2DType]
+    G --> H[LogicSys.getService teacher2DService]
+    H --> I[teacher2DService.playAnimation]
+    I --> J[teacher2DItem 真正播放角色动作]
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这是当前最推荐的联动方式：在节点进入时读取 `node.animation`，再通过一个薄桥接层把字段映射到老师动作。这样既不污染 `DialogueManager` 核心逻辑，也不会让 UI 去承担系统联动职责。</p>
               </div>
             </div>
           </section>
         </div>
-        
-        <!-- 侧边栏（补充简历关联信息） -->
+
         <div class="space-y-6">
-          <!-- 项目信息（修正团队规模与角色，贴合简历） -->
-          <div class="bg-white rounded-xl p-6 shadow-md">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目信息</h3>
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">系统信息</h3>
             <div class="space-y-4">
               <div>
-                <p class="text-sm text-gray-500 mb-1">项目类型</p>
-                <p>炼金主题冒险游戏（PC端）</p>
+                <p class="text-sm text-gray-500 mb-1">系统定位</p>
+                <p>面向教学讲解场景的互动对话表现系统</p>
               </div>
               <div>
                 <p class="text-sm text-gray-500 mb-1">开发周期</p>
-                <p>3个月（2024/01-2024/03）</p>
+                <p>2025/12 - 2026/02</p>
               </div>
               <div>
-                <p class="text-sm text-gray-500 mb-1">团队规模</p>
-                <p>3人（1名程序+1名美术+1名策划）</p>
+                <p class="text-sm text-gray-500 mb-1">核心技术</p>
+                <p>Cocos Creator / TypeScript / Mermaid / 事件驱动架构</p>
               </div>
               <div>
-                <p class="text-sm text-gray-500 mb-1">我的角色</p>
-                <p>队长 / 主程序 / 核心策划</p>
-              </div>
-              <div>
-                <p class="text-sm text-gray-500 mb-1">关联成果</p>
-                <p>为2024三教杯游戏优秀作品奖奠定基础</p>
+                <p class="text-sm text-gray-500 mb-1">相关文档</p>
+                <p><code class="text-primary">images/2Dteacher/2D老师与对话系统开发总结.md</code></p>
+                <p class="mt-1"><code class="text-primary">images/2Dteacher/2D老师与对话系统流程图代码.md</code></p>
               </div>
             </div>
           </div>
-          
-          <!-- 技术栈（基于简历技能补充，去除无关工具） -->
-          <div class="bg-white rounded-xl p-6 shadow-md">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">技术栈</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Unreal Engine 5</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">C++</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE Blueprint</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE UMG</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">UE Sequencer</span>
-              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Git（协作工具）</span>
-            </div>
-          </div>
-          
-          <!-- 成果与收获（结合简历技能成长与后续竞赛） -->
-          <div class="bg-white rounded-xl p-6 shadow-md">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">成果与收获</h3>
+
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">关键模块</h3>
             <ul class="space-y-2">
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>独立完成5个核心模块开发，掌握UE5中C++与蓝图的混合调用逻辑</span>
+                <span><code class="text-primary">DialogueManager</code>：管理对话资源、状态机与节点推进流程。</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>通过队长角色锻炼项目统筹能力，学会根据团队成员优势分配任务</span>
+                <span><code class="text-primary">DialogueData / DialogueNode</code>：构成数据驱动的有向节点图模型。</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>将《图形与动画》《C++程序设计》课程知识落地，提升技术应用能力</span>
+                <span><code class="text-primary">teacher2DService</code>：统一对外暴露老师动画播放接口。</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>项目开发经验直接支撑后续参与“三教杯”并获游戏优秀作品奖</span>
-              </li>
-              <li class="flex items-start text-sm">
-                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>积累“从0到1”的游戏开发流程经验，明确个人在“UE5客户端开发”的职业方向</span>
+                <span><code class="text-primary">teacher2DItem</code>：适配 `cc.Animation` 与 `sp.Skeleton` 两类底层动画实现。</span>
               </li>
             </ul>
           </div>
-          
-          <!-- 下载与联系（补充简历中的联系方式） -->
-          <div class="bg-white rounded-xl p-6 shadow-md">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">获取与联系</h3>
-            <a href="#" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-3">
-              <i class="fas fa-download mr-2"></i> 下载游戏Demo
+
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">当前状态与价值</h3>
+            <div class="text-sm text-gray-700 space-y-3">
+              <p>价值：对话系统已经具备完整的数据结构、校验机制、分支逻辑和状态管理，不是简单的文字面板。</p>
+              <p>价值：2D 老师系统通过配置表 + 服务层 + 控制器接口完成了解耦，后续接入不会牵动底层表现代码。</p>
+              <p>现状：两套系统尚未直接接线，但从字段、事件和动作接口上看，联动条件已经齐备。</p>
+              <p>建议：优先通过 `NodeStarted` 增加桥接模块，再逐步在 `PLAY_ANIMATION` 动作里补完整执行逻辑。</p>
+            </div>
+          </div>
+
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目链接</h3>
+            <a href="https://github.com/not-to-midnight/SCgame.git" target="_blank" rel="noopener noreferrer" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-4">
+              <i class="fab fa-github mr-2"></i> 查看 GitHub 仓库
             </a>
-            <a href="#" class="block w-full py-3 border border-gray-300 text-gray-700 rounded-lg text-center hover:bg-gray-50 transition-colors mb-4">
-              <i class="fas fa-code mr-2"></i> 查看核心模块代码
-            </a>
-            <div class="text-sm text-gray-600">
-              <p class="mb-1"><i class="fas fa-phone mr-2 text-primary"></i> 联系电话：18568525203</p>
-              <p><i class="fas fa-envelope mr-2 text-primary"></i> 邮箱：1062237244@qq.com</p>
+            <div class="text-sm text-gray-700 space-y-2">
+              <p>仓库地址：</p>
+              <p class="break-all">
+                <a href="https://github.com/not-to-midnight/SCgame.git" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">https://github.com/not-to-midnight/SCgame.git</a>
+              </p>
             </div>
           </div>
         </div>
@@ -286,26 +418,25 @@
     </div>
   </main>
 
-  <!-- 页脚（补充个人专业标签） -->
   <footer class="bg-dark text-white py-12">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-6 md:mb-0">
           <div class="flex items-center space-x-2 mb-2">
             <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
-              <i class="fas fa-gamepad text-primary"></i>
+              <i class="fas fa-chalkboard-teacher text-primary"></i>
             </div>
             <span class="font-bold text-lg">陈皓林</span>
           </div>
-          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+          <p class="text-gray-400 text-sm">教学交互系统设计 | 电子科技大学软件工程（数字动漫）</p>
         </div>
-        
+
         <div class="flex space-x-6">
           <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
             <i class="fab fa-github text-xl"></i>
           </a>
           <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
-            <i class="fab fa-itch-io text-xl"></i> <!-- 加入游戏开发者常用平台图标 -->
+            <i class="fab fa-itch-io text-xl"></i>
           </a>
           <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
             <i class="fab fa-linkedin text-xl"></i>
@@ -315,23 +446,18 @@
           </a>
         </div>
       </div>
-      
+
       <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-        <p>© 2025 陈皓林. 专注UE5游戏开发，致力于打造优质玩家体验.</p>
+        <p>© 2026 陈皓林. 持续积累教学交互与游戏表现系统设计经验。</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // 移动端菜单切换
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    
-    // 导航栏滚动效果
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -342,26 +468,23 @@
         navbar.classList.add('shadow-sm');
       }
     });
-    
-    // 滚动动画
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-    
+
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: 'loose',
+      theme: 'default'
+    });
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
           observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
-    
-    document.querySelectorAll('section').forEach(section => {
-      observer.observe(section);
-    });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach((section) => observer.observe(section));
   </script>
 </body>
 </html>

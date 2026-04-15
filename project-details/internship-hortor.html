@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>疯狂游戏 Hortor Games - 实习详情</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36CFC9',
+            dark: '#1D2129',
+            light: '#F2F3F5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto { content-visibility: auto; }
+      .animate-fade-in { animation: fadeIn 0.8s ease-in-out; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-light font-sans text-dark">
+  <nav id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="../index.html" class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-white"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </a>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+          <a href="../index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我</a>
+          <a href="../index.html#skills" class="text-gray-600 hover:text-primary transition-colors">技能</a>
+          <a href="../index.html#education" class="text-gray-600 hover:text-primary transition-colors">教育</a>
+          <a href="../index.html#internship" class="text-primary font-medium">实习</a>
+          <a href="../index.html#projects" class="text-gray-600 hover:text-primary transition-colors">项目</a>
+          <a href="../index.html#experience" class="text-gray-600 hover:text-primary transition-colors">经历</a>
+          <a href="../index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系</a>
+        </div>
+
+        <div class="md:hidden">
+          <button id="mobile-menu-button" class="text-gray-600 hover:text-primary">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t animate-fade-in">
+      <div class="container mx-auto px-4 py-3 space-y-3">
+        <a href="../index.html#about" class="block text-gray-600 hover:text-primary transition-colors py-2">关于我</a>
+        <a href="../index.html#skills" class="block text-gray-600 hover:text-primary transition-colors py-2">技能</a>
+        <a href="../index.html#education" class="block text-gray-600 hover:text-primary transition-colors py-2">教育</a>
+        <a href="../index.html#internship" class="block text-primary font-medium py-2">实习</a>
+        <a href="../index.html#projects" class="block text-gray-600 hover:text-primary transition-colors py-2">项目</a>
+        <a href="../index.html#experience" class="block text-gray-600 hover:text-primary transition-colors py-2">经历</a>
+        <a href="../index.html#contact" class="block text-gray-600 hover:text-primary transition-colors py-2">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <a href="../index.html#internship" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+          <i class="fas fa-arrow-left mr-2"></i> 返回实习经历
+        </a>
+      </div>
+
+      <div class="text-center mb-12">
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">疯狂游戏 Hortor Games 实习详情</h1>
+        <p class="text-gray-600">企业实习项目 | 2026/01-2026/04 | 破云工作室 | 游戏客户端开发实习生</p>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-md mb-12">
+        <img src="../images/internship-report/mindmap.png" alt="企业实习报告中的养成系统思维导图" class="w-full h-auto">
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2 space-y-10">
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">实习概述</h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+              这段实习聚焦于小游戏客户端开发。我在疯狂游戏的破云工作室参与 ARPG 小游戏项目《迷雾大陆》相关功能开发，工作内容包括业务模块迭代、界面逻辑调试、Bug 修复以及底层框架学习。相比学校项目，这次实习更强调工程化思维，需要在既有项目架构下理解数据流、交互链路和客户端与服务器的职责边界。
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+              报告中重点展开的是“熔炉养成系统”这一类典型业务系统：它不仅要处理前端界面展示和交互逻辑，还要兼顾配置驱动、运行时数据初始化、与服务端同步以及防篡改校验等问题，因此很适合作为实习阶段对客户端系统设计能力的总结。
+            </p>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">目标与任务</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-light rounded-lg p-5">
+                <h3 class="font-semibold text-lg mb-3">实习目标</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  深入掌握 Cocos Creator 与 TypeScript 在小游戏客户端中的实际用法，熟悉团队项目框架、版本协作流程和配置驱动开发方式，逐步具备独立开发客户端业务模块的能力。
+                </p>
+              </div>
+              <div class="bg-light rounded-lg p-5">
+                <h3 class="font-semibold text-lg mb-3">核心任务</h3>
+                <ul class="text-gray-700 space-y-2">
+                  <li>学习并熟悉 Cocos Creator 引擎使用方法和项目整体框架。</li>
+                  <li>调试通关界面、商店支付等现有业务逻辑。</li>
+                  <li>开发熔炉养成系统，并同步角色数值到服务器。</li>
+                  <li>学习并复刻红点树、事件分发、服务管理等基础模块。</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">我的职责</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">参与核心小游戏项目客户端代码编写，理解现有工程分层和模块边界，在不破坏既有框架的前提下完成功能扩展。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">处理通关界面、商店支付等业务逻辑问题，配合需求迭代完成交互修正、状态刷新与异常场景处理。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">围绕熔炉养成系统梳理完整链路，包括界面表现、逻辑判断、配置读取、运行时数据组织以及网络请求同步。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-check text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">学习游戏底层通用模块的设计方式，并通过复刻练习提升对事件派发、服务注册和状态管理的理解。</p>
+              </li>
+            </ul>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">报告中的关键系统拆解</h2>
+            <div class="space-y-10">
+              <div>
+                <h3 class="text-xl font-semibold mb-4">1. 养成系统问题拆解</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  报告先用思维导图把问题拆成四部分：系统框架与前端交互、数据存储与初始化时机、数据同步与防篡改、系统解耦与策划配置。这个拆法的价值在于，它不是只把系统理解成一个“按钮 + 数值增长”的前端界面，而是把客户端系统放回完整工程环境里去思考。
+                </p>
+                <img src="../images/internship-report/mindmap.png" alt="养成系统思维导图" class="w-full rounded-lg border border-gray-100">
+                <p class="text-sm text-gray-500 mt-2">图示截取自企业实习初期报告中的“图 1-1 养成系统思维导图”。</p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold mb-4">2. 系统架构设计</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  在系统架构上，报告把模块分成界面表现层、业务逻辑层、配置驱动层和网络同步层。这样的分层方式能把“显示什么”“如何计算”“读什么配置”“何时与服务端同步”拆开处理，减少业务逻辑和界面代码耦合，也便于后续功能迭代时只调整其中一层。
+                </p>
+                <img src="../images/internship-report/system-architecture.png" alt="系统架构图" class="w-full rounded-lg border border-gray-100">
+                <p class="text-sm text-gray-500 mt-2">图示截取自报告中的“图 2-1 系统架构图”。</p>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold mb-4">3. 客户端交互链路与数据初始化</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  客户端侧需要先根据角色现有成长状态和材料持有情况初始化界面，再通过统一入口接收交互请求，完成前置校验后把请求发送给服务器。与此同时，初始化阶段还要把服务器下发的角色数据与本地静态配置拼装成运行时状态，保证后续界面刷新与逻辑判断都建立在一致的数据基础上。
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <img src="../images/internship-report/interaction-flow.png" alt="交互逻辑链" class="w-full rounded-lg border border-gray-100">
+                    <p class="text-sm text-gray-500 mt-2">图 2-2 交互逻辑链</p>
+                  </div>
+                  <div>
+                    <img src="../images/internship-report/data-init.png" alt="数据初始化图" class="w-full rounded-lg border border-gray-100">
+                    <p class="text-sm text-gray-500 mt-2">图 2-3 数据初始化图</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-xl font-semibold mb-4">4. 客户端与服务器同步</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  报告强调客户端负责发起操作、维护表现和更新本地状态，而最终结果仍以服务器返回为准。这个设计避免了玩家在本地直接篡改关键成长数据，也让“前端体验即时性”和“核心数据安全性”可以同时兼顾。对小游戏客户端开发来说，这是非常典型也非常重要的边界意识。
+                </p>
+                <img src="../images/internship-report/sync-flow.png" alt="同步逻辑图" class="w-full rounded-lg border border-gray-100">
+                <p class="text-sm text-gray-500 mt-2">图示截取自报告中的“图 2-4 同步逻辑图”。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="bg-white rounded-xl p-8 shadow-md">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">成果与收获</h2>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-star text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">从“能做功能”进一步提升到“能理解系统为什么这么设计”，对游戏客户端架构的理解更完整。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-star text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">熟悉了配置驱动、状态驱动 UI 刷新、客户端与服务端职责划分等实战工程模式。</p>
+              </li>
+              <li class="flex items-start">
+                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
+                  <i class="fas fa-star text-primary text-sm"></i>
+                </div>
+                <p class="text-gray-700">通过复刻红点树、事件分发、服务管理等模块，建立了对底层通用框架的初步工程认知。</p>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">实习信息</h3>
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm text-gray-500 mb-1">企业名称</p>
+                <p>北京豪腾嘉科科技有限公司（疯狂游戏 Hortor Games）</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">所在团队</p>
+                <p>破云工作室</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">岗位名称</p>
+                <p>游戏客户端开发实习生</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500 mb-1">业务方向</p>
+                <p>微信小游戏 / ARPG 客户端系统开发</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">技术栈</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Cocos Creator</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">TypeScript</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">微信小游戏</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">配置表驱动</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">事件分发</span>
+              <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">服务管理</span>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">报告要点</h3>
+            <ul class="space-y-2 text-sm text-gray-700">
+              <li class="flex items-start">
+                <i class="fas fa-circle text-primary text-[8px] mt-1.5 mr-2"></i>
+                <span>围绕熔炉养成系统展开复杂工程问题分析</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-primary text-[8px] mt-1.5 mr-2"></i>
+                <span>强调界面表现、业务逻辑、配置驱动、网络同步四层协作</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-circle text-primary text-[8px] mt-1.5 mr-2"></i>
+                <span>突出客户端初始化与服务端校验的重要性</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 shadow-md">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">报告原页摘录</h3>
+            <div class="space-y-4">
+              <div class="rounded-lg overflow-hidden border border-gray-100">
+                <img src="../images/internship-report/page-7.png" alt="企业实习报告第7页" class="w-full h-auto">
+              </div>
+              <div class="rounded-lg overflow-hidden border border-gray-100">
+                <img src="../images/internship-report/page-8.png" alt="企业实习报告第8页" class="w-full h-auto">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2 mb-2">
+            <div class="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+              <i class="fas fa-gamepad text-primary"></i>
+            </div>
+            <span class="font-bold text-lg">陈皓林</span>
+          </div>
+          <p class="text-gray-400 text-sm">小游戏客户端开发实践 | 电子科技大学软件工程（数字动漫）</p>
+        </div>
+
+        <div class="flex space-x-6">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="GitHub">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="游戏作品展示">
+            <i class="fab fa-itch-io text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="LinkedIn">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors" title="联系邮箱">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+        <p>© 2026 陈皓林. 持续积累游戏客户端开发与系统设计经验。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.remove('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.add('shadow-sm');
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section, .shadow-md').forEach((element) => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>

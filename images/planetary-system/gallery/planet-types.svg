@@ -1,21 +1,25 @@
 <svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="720" rx="32" fill="#0F172A"/>
-  <text x="70" y="110" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700">L{ã˘‘</text>
-  <text x="70" y="165" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">Œ©ÛL0ËL{ãÕ ÜbMni(ÑÓ</text>
-  <rect x="90" y="230" width="240" height="360" rx="28" fill="#111827"/>
-  <rect x="350" y="230" width="240" height="360" rx="28" fill="#111827"/>
-  <rect x="610" y="230" width="240" height="360" rx="28" fill="#111827"/>
-  <rect x="870" y="230" width="240" height="360" rx="28" fill="#111827"/>
+  <text x="72" y="104" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700">Planet Types</text>
+  <text x="72" y="152" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">Common body classes used in the simulation</text>
+
+  <rect x="90" y="230" width="240" height="360" rx="28" fill="#111827" stroke="#334155"/>
+  <rect x="350" y="230" width="240" height="360" rx="28" fill="#111827" stroke="#334155"/>
+  <rect x="610" y="230" width="240" height="360" rx="28" fill="#111827" stroke="#334155"/>
+  <rect x="870" y="230" width="240" height="360" rx="28" fill="#111827" stroke="#334155"/>
+
   <circle cx="210" cy="360" r="48" fill="#A16207"/>
   <circle cx="470" cy="360" r="78" fill="#EAB308"/>
   <circle cx="730" cy="360" r="68" fill="#38BDF8"/>
   <circle cx="990" cy="360" r="56" fill="#A78BFA"/>
-  <text x="150" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">{0L</text>
-  <text x="418" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">ËL</text>
-  <text x="682" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">∞ËL</text>
-  <text x="932" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">˚L</text>
-  <text x="126" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">ÿ∆¶ / ©Û(</text>
-  <text x="401" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">"&`‘ÿ</text>
-  <text x="665" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">%—i0Ã</text>
-  <text x="915" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">{ã^87</text>
+
+  <text x="140" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Rocky</text>
+  <text x="403" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Gas Giant</text>
+  <text x="671" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Ice Giant</text>
+  <text x="916" y="470" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">Dwarf</text>
+
+  <text x="122" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">Dense / mineral rich</text>
+  <text x="394" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">Large atmosphere</text>
+  <text x="659" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">Cold volatile body</text>
+  <text x="901" y="512" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">Small outer object</text>
 </svg>

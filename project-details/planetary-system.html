@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>行星系统介绍页 - 专题网页</title>
+  <title>行星系统开发总结 - 三维物理教学模块</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 
   <script>
     tailwind.config = {
@@ -88,8 +89,8 @@
       </div>
 
       <div class="text-center mb-12">
-        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">行星系统介绍页</h1>
-        <p class="text-gray-600">专题网页 | 2026/04 | 科普展示设计</p>
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">行星系统开发总结</h1>
+        <p class="text-gray-600">Cocos Creator 三维物理教学模块 | 2026/04 | 系统设计与实现复盘</p>
       </div>
 
       <div class="bg-slate-950 rounded-2xl overflow-hidden shadow-md mb-12">
@@ -99,89 +100,301 @@
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div class="lg:col-span-2 space-y-10">
           <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">主题概述</h2>
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">系统概述</h2>
             <p class="text-gray-700 mb-4 leading-relaxed">
-              本页围绕“行星系统”展开介绍，使用太阳系作为用户最熟悉的案例，帮助读者快速理解恒星、行星、卫星、小行星带和宜居带之间的关系。
+              这个行星系统不是单纯的“轨道动画演示”，而是集成在 Cocos Creator 项目里的可编辑、可模拟、可观察、可交互的三维物理教学模块。它一方面承担课堂演示和答辩展示的视觉表达，另一方面也保留了参数调整、轨道生成、聚焦观察和状态重置等工程能力。
             </p>
             <p class="text-gray-700 leading-relaxed">
-              页面内容兼顾可读性和展示感，适合用作科普专题页、课程展示页，或作为未来扩展为交互式宇宙主题网页的视觉基础。
+              设计目标并不是追求天文学意义上的高精度仿真，而是优先保证可理解性、可调试性、可演示性和实时性能。因此整套系统围绕服务层统一管理、组件自注册、事件驱动 UI 和控制器驱动相机来组织。
             </p>
           </section>
 
           <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">行星系统的基本组成</h2>
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">总体架构</h2>
             <ul class="space-y-4">
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-sun text-primary text-sm"></i>
+                  <i class="fas fa-play text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">中心恒星是整个系统的能量来源，也是大多数天体公转的核心引力中心。</p>
+                <p class="text-gray-700"><strong>启动与服务注册层</strong>：在游戏启动时注册 `PlanetService`，保证行星系统有唯一的物理核心实例。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-globe text-primary text-sm"></i>
+                  <i class="fas fa-atom text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">行星按照轨道分布在不同距离上，温度、体积和组成成分也会随着距离变化而发生明显差异。</p>
+                <p class="text-gray-700"><strong>物理仿真核心层</strong>：由 `PlanetService` 统一管理天体注册、引力计算、固定步长积分、质心和重置逻辑。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-meteor text-primary text-sm"></i>
+                  <i class="fas fa-circle-nodes text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">小行星、彗星和尘埃带记录了恒星系统形成早期留下的物质信息。</p>
+                <p class="text-gray-700"><strong>天体实体层</strong>：`BallItem`、`PlanetItem`、`StarItem` 承载单个天体的质量、速度、受力、可视化和碰撞状态。</p>
               </li>
               <li class="flex items-start">
                 <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-satellite text-primary text-sm"></i>
+                  <i class="fas fa-sliders text-primary text-sm"></i>
                 </div>
-                <p class="text-gray-700">卫星系统则进一步丰富了行星周围的结构，是研究潮汐、轨道稳定性和生命条件的重要对象。</p>
+                <p class="text-gray-700"><strong>UI 与观察层</strong>：`PlanetUI`、`PlanetPropertyItem`、`FreeCameraController`、`SkyController` 负责参数面板、按钮控制、聚焦观察和每帧驱动。</p>
               </li>
             </ul>
           </section>
 
           <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">典型行星类型</h2>
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">核心设计思想</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">类地行星</h3>
+                <h3 class="font-semibold text-lg mb-2">`PlanetService` 作为唯一真相源</h3>
                 <p class="text-gray-700 text-sm leading-relaxed">
-                  体积较小、密度较高，主要由岩石和金属构成，例如水星、金星、地球和火星。
+                  所有系统级状态都收敛在 `PlanetService` 中，包括天体注册表、模拟状态、三星模式、质心计算和重置逻辑。这样 UI 不直接计算物理，组件也不直接管理全局。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">气态巨行星</h3>
+                <h3 class="font-semibold text-lg mb-2">组件自注册</h3>
                 <p class="text-gray-700 text-sm leading-relaxed">
-                  通常拥有更大的质量和更厚的大气层，木星和土星是太阳系中的代表。
+                  `PlanetItem` 和 `StarItem` 在 `onLoad()` 时主动注册到服务层，在销毁时自动注销，减少外部管理器手工维护列表的复杂度。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">冰巨行星</h3>
+                <h3 class="font-semibold text-lg mb-2">事件驱动 UI</h3>
                 <p class="text-gray-700 text-sm leading-relaxed">
-                  天王星和海王星富含挥发性物质，外观颜色和大气结构都具有鲜明特征。
+                  `PlanetUI` 不直接硬绑定所有行星实体，而是通过 `PlanetUpdated`、`FocusPlanetChanged`、`PlanetBodyPositionChanged` 等事件和逻辑层解耦。
                 </p>
               </div>
               <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">系外行星</h3>
+                <h3 class="font-semibold text-lg mb-2">固定步长积分</h3>
                 <p class="text-gray-700 text-sm leading-relaxed">
-                  这些行星位于太阳系之外，是现代天文学研究行星系统演化和潜在宜居性的关键对象。
+                  模拟采用累加器配合固定物理步长推进，而不是直接使用帧间 `dt`。这样能显著提升轨道稳定性，避免帧率波动污染模拟结果。
                 </p>
               </div>
             </div>
           </section>
 
           <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">页面配图</h2>
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">实现重点与展示资源</h2>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              下面这组截图直接来自你当前的行星系统运行界面。我按照图片名称去组织说明，让每一张图都对应一个明确的系统现象或演示场景，方便在作品集和答辩里直接引用。
+            </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="rounded-lg overflow-hidden">
-                <img src="../images/planetary-system/gallery/orbit-structure.svg" alt="行星轨道结构示意图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">轨道结构图，用来快速说明行星与中心恒星的层级关系。</p>
+                <img src="../images/planetary-system/gallery/二维恒星轨道.png" alt="二维恒星轨道界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">`二维恒星轨道`：展示在恒星作为引力中心时，多个行星在同一平面内形成较稳定的环绕轨道，适合说明自动圆轨道初速度和二维教学演示模式。</p>
               </div>
               <div class="rounded-lg overflow-hidden">
-                <img src="../images/planetary-system/gallery/planet-types.svg" alt="行星类型对比图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">行星类型对比图，适合展示类地行星与巨行星之间的差异。</p>
+                <img src="../images/planetary-system/gallery/多维恒星轨道.png" alt="多维恒星轨道界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">`多维恒星轨道`：展示带有空间高度差和更复杂初速度分量时的三维轨道表现，用来说明系统并不局限于二维平面，而是支持更自由的轨迹观察。</p>
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/planetary-system/gallery/双星系统.png" alt="双星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">`双星系统`：展示无恒星条件下两颗行星围绕共同质心运动的效果，对应文档里“双体初始速度生成”和质心运动的教学场景。</p>
+              </div>
+              <div class="rounded-lg overflow-hidden">
+                <img src="../images/planetary-system/gallery/平衡三星系统.png" alt="平衡三星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">`平衡三星系统`：展示开启三星模式后，三颗行星在等角布局下形成相对平衡的运行状态，适合说明编辑器辅助布局和三星初值策略的效果。</p>
               </div>
               <div class="rounded-lg overflow-hidden md:col-span-2">
-                <img src="../images/planetary-system/gallery/exploration-timeline.svg" alt="行星探索时间线" class="w-full h-auto hover:scale-105 transition-transform duration-300">
-                <p class="text-sm text-gray-500 mt-2">探索时间线，用于连接知识介绍和航天任务背景。</p>
+                <img src="../images/planetary-system/gallery/不平衡三星系统.png" alt="不平衡三星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <p class="text-sm text-gray-500 mt-2">`不平衡三星系统`：展示三星参数不平衡时轨迹快速发散、偏离稳定构型的现象，可用于说明系统稳定性边界，以及为什么需要合理的初始条件和质心约束。</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="space-card">
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">流程图展示</h2>
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              下面这组流程图直接接入了你整理的 Mermaid 代码，用来把行星系统的整体架构、启动流程、物理更新、UI 交互和相机聚焦逻辑可视化展示出来，方便答辩、讲解和后续交接。
+            </p>
+            <div class="space-y-8">
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">系统总体架构图</h3>
+                <div class="mermaid">
+flowchart TB
+    subgraph 启动层
+        SB[startboot]
+        LS[LogicSystem]
+    end
+
+    subgraph 服务层
+        PS[PlanetService]
+    end
+
+    subgraph 实体层
+        PI[PlanetItem]
+        SI[StarItem]
+        BI[BallItem]
+    end
+
+    subgraph 交互与驱动层
+        SC[SkyController]
+        FC[FreeCameraController]
+        PUI[PlanetUI]
+        PPI[PlanetPropertyItem]
+    end
+
+    subgraph 事件层
+        EV[EventManager / Events]
+    end
+
+    SB --> LS
+    LS --> PS
+    BI --> PI
+    BI --> SI
+    PI --> PS
+    SI --> PS
+    SC --> PS
+    FC --> PS
+    PUI --> PS
+    PPI --> PS
+    PUI --> EV
+    PPI --> EV
+    FC --> EV
+    EV --> PS
+    EV --> PUI
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这张图对应文档里“服务层统一管理 + 组件自注册 + 事件驱动 UI + 控制器驱动相机”的总体思路。核心点在于 `PlanetService` 处于中心位置，实体层、UI 层和相机控制层都围绕它协作，而不是彼此直接耦合。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">启动初始化流程</h3>
+                <div class="mermaid">
+flowchart TD
+    A[startboot.onLoad] --> B[读取 URL 参数 level]
+    B --> C[LogicSystem.init]
+    C --> D[注册 PlanetService]
+    D --> E[PlanetService.init]
+    E --> F[监听 resetGame / PlanetBodyPositionChanged]
+    C --> G{level == 3?}
+    G -->|是| H[initStar]
+    H --> I[检查 PlanetService 是否已注册]
+    I --> J[preloadScene star]
+    J --> K[loadScene star]
+    K --> L[进入 star.scene]
+    L --> M[PlanetItem / StarItem onLoad 自注册]
+    L --> N[PlanetUI.start 同步面板]
+    L --> O[SkyController.start 初始化 geometryRenderer]
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这里重点说明行星系统并不是孤立脚本，而是通过 `startboot` 和 `LogicSystem` 作为正式模块接入主工程。场景进入后，天体组件自动注册到服务层，UI 和渲染驱动再分别完成各自初始化。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">行星系统运行流程</h3>
+                <div class="mermaid">
+flowchart TD
+    A[编辑状态 Normal] --> B[用户调整质量/速度/位置/显示参数]
+    B --> C[PlanetUI / PlanetPropertyItem 更新数据]
+    C --> D[点击 开始模拟]
+    D --> E[PlanetService.start]
+    E --> F[记录初始位置]
+    F --> G{有恒星?}
+    G -->|有| H[给所有行星计算绕恒星圆轨道初速度]
+    G -->|无| I{是否双星?}
+    I -->|是| J[双星初速度计算]
+    I -->|否| K{是否三星模式?}
+    K -->|是| L[三星绕质心初速度计算]
+    K -->|否| M[仅保留用户填写初始速度]
+    H --> N[updateAllForce]
+    J --> N
+    L --> N
+    M --> N
+    N --> O[进入 Stimulate]
+    O --> P[SkyController.update]
+    P --> Q[PlanetService.update]
+    Q --> R[固定步长物理积分]
+    R --> S[PlanetItem.updateState]
+    S --> T[轨迹/力箭头/质心可视化]
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这张图把“编辑态配置”到“运行态模拟”的全过程串起来了。它说明开始模拟时不仅仅是切换状态，还会根据恒星、双星或三星模式生成更合理的初始速度，再进入持续的物理推进和可视化更新。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">固定步长与 Verlet 更新</h3>
+                <div class="mermaid">
+flowchart TB
+    A[PlanetService.update dt] --> B[_accumulator += dt]
+    B --> C{_accumulator &gt;= FIXED_DT?}
+    C -->|否| Z[结束本帧]
+    C -->|是| D[physicStep FIXED_DT]
+    D --> E[半步速度更新 v += a * h/2]
+    E --> F[位置更新 p += v * h]
+    F --> G[重新计算所有引力]
+    G --> H[得到新加速度 a_new]
+    H --> I[再半步速度更新 v += a_new * h/2]
+    I --> J[_accumulator -= FIXED_DT]
+    J --> C
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这一段解释的是为什么系统没有直接用逐帧 `dt` 做欧拉积分，而是采用累加器配合固定步长的 Velocity Verlet 方案。它能显著降低帧率波动对轨道结果的影响，让不同机器上的演示更稳定。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">UI 与事件交互流程</h3>
+                <div class="mermaid">
+sequenceDiagram
+    participant User as 用户
+    participant UI as PlanetUI
+    participant Item as PlanetPropertyItem
+    participant Event as EventManager
+    participant Service as PlanetService
+
+    User->>UI: 点击开始模拟
+    UI->>Service: gameState = Stimulate
+    UI->>Service: start()
+
+    User->>Item: 修改位置
+    Item->>Event: Raise PlanetBodyPositionChanged
+    Event->>Service: updateBodyPosition
+    Service->>Event: Raise PlanetUpdated
+    Event->>UI: syncPanels
+
+    User->>UI: 点击重置
+    UI->>Event: Raise resetGame
+    Event->>Service: resetGameToInitialPosition
+    Service->>Event: Raise PlanetUpdated
+    Event->>UI: syncPanels
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这里强调的是 UI 和逻辑层并不是直接互调，而是通过事件系统完成同步。位置修改、重置和状态刷新都先经过事件广播，再由 `PlanetService` 统一处理，这样面板、服务层和实体组件之间会更容易维护。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">相机选择与聚焦流程</h3>
+                <div class="mermaid">
+flowchart TD
+    A[鼠标左键点击场景] --> B[FreeCameraController.tryPickPlanet]
+    B --> C[Camera.screenPointToRay]
+    C --> D[PhysicsSystem.raycast]
+    D --> E{命中行星?}
+    E -->|否| F[如果当前未聚焦则清空选择]
+    E -->|是| G[PlanetService.setCurrentPlanet]
+    G --> H[显示选中特效]
+    H --> I[Raise FocusPlanetChanged]
+    I --> J[PlanetUI 更新 focusLabel]
+
+    K[用户按 F] --> L{已有 currentPlanet?}
+    L -->|否| Z[结束]
+    L -->|是| M{当前已聚焦?}
+    M -->|否| N[设置 focusTarget]
+    N --> O{聚焦模式}
+    O -->|LookAt| P[相机只朝向目标]
+    O -->|Follow| Q[相机沿 质心->行星 方向跟随]
+    M -->|是| R[clearFocus]
+                </div>
+                <p class="text-sm text-gray-600 mt-4">这部分说明玩家如何从“点击选中某颗行星”过渡到“相机围绕目标观察”。射线拾取、选中特效、焦点更新和 LookAt / Follow 两种聚焦模式都在同一条链路里完成，便于演示交互观察能力。</p>
+              </div>
+
+              <div class="rounded-xl border border-gray-100 p-4 bg-slate-50 overflow-x-auto">
+                <h3 class="font-semibold text-lg mb-4">重置流程</h3>
+                <div class="mermaid">
+flowchart TD
+    A[用户点击重置] --> B[PlanetUI 设置 gameState = Normal]
+    B --> C[关闭三星模式]
+    C --> D[Raise resetGame]
+    D --> E[PlanetService.resetGameToInitialPosition]
+    E --> F[恢复所有行星初始位置]
+    F --> G[速度归零]
+    G --> H[清空轨迹]
+    H --> I[销毁质心节点]
+    I --> J[_simulationStarted = false]
+    J --> K[UI 刷新]
+                </div>
+                <p class="text-sm text-gray-600 mt-4">重置并不是简单把节点瞬移回原位，而是完整恢复一轮模拟的初始状态，包括速度、轨迹、质心节点和三星模式。这样可以保证重新开始时，系统状态和界面表现保持一致。</p>
               </div>
             </div>
           </section>
@@ -189,51 +402,70 @@
 
         <div class="space-y-6">
           <div class="space-card">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">页面信息</h3>
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">系统信息</h3>
             <div class="space-y-4">
               <div>
-                <p class="text-sm text-gray-500 mb-1">页面类型</p>
-                <p>行星系统科普专题页</p>
+                <p class="text-sm text-gray-500 mb-1">系统定位</p>
+                <p>可编辑、可模拟、可观察的三维物理教学模块</p>
               </div>
               <div>
-                <p class="text-sm text-gray-500 mb-1">内容定位</p>
-                <p>教育展示 / 科普浏览 / 视觉化介绍</p>
+                <p class="text-sm text-gray-500 mb-1">核心技术</p>
+                <p>Cocos Creator / TypeScript / 事件驱动 UI / 固定步长积分</p>
               </div>
               <div>
-                <p class="text-sm text-gray-500 mb-1">适用人群</p>
-                <p>课程展示、天文兴趣用户、网页设计作品集</p>
+                <p class="text-sm text-gray-500 mb-1">主要用途</p>
+                <p>教学可视化、答辩汇报、系统演示、后续重构交接</p>
               </div>
               <div>
-                <p class="text-sm text-gray-500 mb-1">文件命名</p>
-                <p><code class="text-primary">planetary-system.html</code> + <code class="text-primary">images/planetary-system/</code></p>
+                <p class="text-sm text-gray-500 mb-1">相关文档</p>
+                <p><code class="text-primary">images/planetary-system/行星系统开发总结.md</code></p>
+                <p class="mt-1"><code class="text-primary">images/planetary-system/行星系统流程图代码.md</code></p>
               </div>
             </div>
           </div>
 
           <div class="space-card">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">页面亮点</h3>
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">核心模块</h3>
             <ul class="space-y-2">
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>结构沿用当前站点详情页模板，风格统一，方便继续扩展。</span>
+                <span><code class="text-primary">PlanetService</code>：统一管理天体、引力、积分推进、质心与重置。</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>图片统一放在独立目录下，封面图和详情配图分离，后续替换更方便。</span>
+                <span><code class="text-primary">PlanetItem / StarItem / BallItem</code>：承载实体状态并完成自注册。</span>
               </li>
               <li class="flex items-start text-sm">
                 <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
-                <span>内容偏科普说明型，适合继续加入动画、滚动特效或交互式轨道展示。</span>
+                <span><code class="text-primary">PlanetUI / PlanetPropertyItem</code>：负责参数面板、按钮和状态同步。</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <i class="fas fa-star text-yellow-400 mt-1 mr-2"></i>
+                <span><code class="text-primary">FreeCameraController / SkyController</code>：处理相机控制、拾取聚焦和运行时驱动。</span>
               </li>
             </ul>
           </div>
 
           <div class="space-card">
-            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">资源组织建议</h3>
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">当前优点与边界</h3>
             <div class="text-sm text-gray-700 space-y-3">
-              <p>封面图统一放在 <code class="text-primary">images/planetary-system/cover.*</code>。</p>
-              <p>详情页配图统一放在 <code class="text-primary">images/planetary-system/gallery/</code>。</p>
-              <p>后续如果增加视频或动态图，可以继续扩展 <code class="text-primary">videos/planetary-system/</code> 或 <code class="text-primary">images/planetary-system/interactive/</code>。</p>
+              <p>优点：架构层次清晰，物理推进比常见演示脚本更正规，并且支持轨迹、受力、质心和相机聚焦等教学可视化功能。</p>
+              <p>优点：编辑器友好，支持无恒星双体、三星等角布局，以及不同模式下的起始速度自动生成。</p>
+              <p>边界：有恒星时忽略行星间相互引力，恒星本身不参与动态运动，碰撞仍采用“碰撞即停”的简化策略。</p>
+              <p>边界：通用 N 体初值生成仍不完整，部分字段命名与实现细节还有继续清理和统一的空间。</p>
+            </div>
+          </div>
+
+          <div class="space-card">
+            <h3 class="text-lg font-semibold mb-4 pb-2 border-b border-gray-100">项目链接</h3>
+            <a href="https://github.com/not-to-midnight/SCgame.git" target="_blank" rel="noopener noreferrer" class="block w-full py-3 bg-primary text-white rounded-lg text-center hover:bg-primary/90 transition-colors mb-4">
+              <i class="fab fa-github mr-2"></i> 查看 GitHub 仓库
+            </a>
+            <div class="text-sm text-gray-700 space-y-2">
+              <p>仓库地址：</p>
+              <p class="break-all">
+                <a href="https://github.com/not-to-midnight/SCgame.git" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">https://github.com/not-to-midnight/SCgame.git</a>
+              </p>
             </div>
           </div>
         </div>
@@ -290,6 +522,12 @@
         navbar.classList.remove('shadow-md');
         navbar.classList.add('shadow-sm');
       }
+    });
+
+    mermaid.initialize({
+      startOnLoad: true,
+      securityLevel: 'loose',
+      theme: 'default'
     });
 
     const observer = new IntersectionObserver((entries) => {

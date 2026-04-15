@@ -1,16 +1,34 @@
 <svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="1200" height="720" rx="32" fill="#020617"/>
-  <circle cx="600" cy="360" r="90" fill="#F59E0B"/>
-  <circle cx="600" cy="360" r="52" fill="#FDE68A"/>
-  <ellipse cx="600" cy="360" rx="170" ry="84" stroke="#334155" stroke-width="3"/>
-  <ellipse cx="600" cy="360" rx="270" ry="134" stroke="#475569" stroke-width="3"/>
-  <ellipse cx="600" cy="360" rx="380" ry="190" stroke="#64748B" stroke-width="3"/>
-  <circle cx="764" cy="360" r="14" fill="#A78BFA"/>
-  <circle cx="868" cy="360" r="18" fill="#22C55E"/>
-  <circle cx="980" cy="360" r="24" fill="#0EA5E9"/>
-  <text x="70" y="110" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700">hSÓ„:</text>
-  <text x="70" y="165" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">-ÃRÐ››ýÏhS€€ù”ôN„)¦¯ƒ</text>
-  <text x="770" y="330" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22">…§hS</text>
-  <text x="875" y="330" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22">œE&DÑ</text>
-  <text x="985" y="330" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22">§hS</text>
+  <circle cx="170" cy="92" r="2" fill="#E2E8F0"/>
+  <circle cx="1040" cy="130" r="2.5" fill="#F8FAFC"/>
+  <circle cx="1096" cy="222" r="2" fill="#CBD5E1"/>
+  <circle cx="920" cy="600" r="2" fill="#F8FAFC"/>
+  <circle cx="250" cy="580" r="2" fill="#CBD5E1"/>
+
+  <circle cx="700" cy="380" r="108" fill="url(#sunGlow)"/>
+  <circle cx="700" cy="380" r="64" fill="#F59E0B"/>
+  <circle cx="700" cy="380" r="40" fill="#FDE68A"/>
+
+  <ellipse cx="700" cy="380" rx="170" ry="84" stroke="#334155" stroke-width="3"/>
+  <ellipse cx="700" cy="380" rx="270" ry="134" stroke="#475569" stroke-width="3"/>
+  <ellipse cx="700" cy="380" rx="380" ry="190" stroke="#64748B" stroke-width="3"/>
+
+  <circle cx="864" cy="380" r="14" fill="#A78BFA"/>
+  <circle cx="968" cy="380" r="18" fill="#22C55E"/>
+  <circle cx="1080" cy="380" r="24" fill="#0EA5E9"/>
+
+  <text x="72" y="104" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="46" font-weight="700">Orbit Structure</text>
+  <text x="72" y="152" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">Star-centered orbital layers and spacing</text>
+
+  <text x="820" y="338" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Rocky</text>
+  <text x="930" y="338" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Gas Giant</text>
+  <text x="1042" y="338" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Ice Giant</text>
+
+  <defs>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(700 380) rotate(90) scale(108)">
+      <stop stop-color="#FDE68A" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#FDE68A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
 </svg>

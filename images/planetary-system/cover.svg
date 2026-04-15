@@ -1,38 +1,57 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1600" height="900" fill="#020617"/>
-  <circle cx="1180" cy="180" r="2" fill="#F8FAFC"/>
-  <circle cx="1310" cy="260" r="3" fill="#E2E8F0"/>
-  <circle cx="1400" cy="120" r="2" fill="#CBD5E1"/>
-  <circle cx="1260" cy="420" r="2" fill="#F8FAFC"/>
-  <circle cx="1030" cy="110" r="2" fill="#E2E8F0"/>
-  <circle cx="260" cy="180" r="4" fill="#F8FAFC"/>
-  <circle cx="360" cy="110" r="3" fill="#CBD5E1"/>
-  <circle cx="480" cy="220" r="2" fill="#E2E8F0"/>
-  <circle cx="220" cy="420" r="2" fill="#F8FAFC"/>
-  <circle cx="520" cy="510" r="3" fill="#CBD5E1"/>
-  <circle cx="800" cy="450" r="120" fill="url(#sunGlow)"/>
-  <circle cx="800" cy="450" r="58" fill="#F59E0B"/>
-  <circle cx="800" cy="450" r="38" fill="#FDE68A"/>
-  <ellipse cx="800" cy="450" rx="170" ry="85" stroke="#1E293B" stroke-width="2"/>
-  <ellipse cx="800" cy="450" rx="270" ry="135" stroke="#23304A" stroke-width="2"/>
-  <ellipse cx="800" cy="450" rx="380" ry="190" stroke="#2C3D5E" stroke-width="2"/>
-  <ellipse cx="800" cy="450" rx="500" ry="250" stroke="#334155" stroke-width="2"/>
-  <circle cx="965" cy="449" r="12" fill="#94A3B8"/>
-  <circle cx="1068" cy="449" r="18" fill="#22C55E"/>
-  <circle cx="1180" cy="449" r="22" fill="#0EA5E9"/>
-  <circle cx="1295" cy="449" r="17" fill="#F97316"/>
-  <circle cx="1410" cy="449" r="34" fill="#EAB308"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1380" cy="140" r="3" fill="#E2E8F0"/>
+  <circle cx="1270" cy="220" r="2.5" fill="#F8FAFC"/>
+  <circle cx="1180" cy="120" r="2" fill="#CBD5E1"/>
+  <circle cx="240" cy="160" r="3" fill="#E2E8F0"/>
+  <circle cx="340" cy="120" r="2" fill="#F8FAFC"/>
+  <circle cx="480" cy="260" r="2.5" fill="#CBD5E1"/>
+  <circle cx="210" cy="540" r="2" fill="#E2E8F0"/>
+  <circle cx="1460" cy="720" r="2.5" fill="#F8FAFC"/>
+
+  <circle cx="1090" cy="450" r="180" fill="url(#sunGlow)" opacity="0.92"/>
+  <circle cx="1090" cy="450" r="74" fill="url(#sunCore)"/>
+
+  <ellipse cx="1090" cy="450" rx="170" ry="78" stroke="#38BDF8" stroke-opacity="0.28" stroke-width="2"/>
+  <ellipse cx="1090" cy="450" rx="280" ry="132" stroke="#60A5FA" stroke-opacity="0.26" stroke-width="2"/>
+  <ellipse cx="1090" cy="450" rx="405" ry="192" stroke="#818CF8" stroke-opacity="0.24" stroke-width="2"/>
+  <ellipse cx="1090" cy="450" rx="540" ry="258" stroke="#A78BFA" stroke-opacity="0.22" stroke-width="2"/>
+
+  <path d="M960 385C915 430 905 505 945 558" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M860 316C795 380 770 494 816 582" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+  <path d="M1185 642C1292 606 1364 512 1360 414" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+
+  <circle cx="957" cy="558" r="12" fill="#38BDF8"/>
+  <circle cx="815" cy="582" r="15" fill="#60A5FA"/>
+  <circle cx="1360" cy="414" r="18" fill="#F97316"/>
+  <circle cx="1494" cy="450" r="34" fill="#EAB308"/>
+  <circle cx="1494" cy="450" r="55" stroke="#C084FC" stroke-width="9" stroke-opacity="0.8"/>
+  <circle cx="1272" cy="319" r="11" fill="#94A3B8"/>
+  <circle cx="920" cy="372" r="9" fill="#F8FAFC"/>
+
   <g opacity="0.85">
-    <circle cx="1410" cy="449" r="54" stroke="#C084FC" stroke-width="10"/>
+    <circle cx="270" cy="706" r="148" fill="#7C3AED" fill-opacity="0.20"/>
+    <circle cx="408" cy="678" r="54" fill="#0EA5E9" fill-opacity="0.24"/>
   </g>
-  <circle cx="270" cy="690" r="120" fill="#7C3AED" opacity="0.18"/>
-  <circle cx="1330" cy="720" r="150" fill="#0EA5E9" opacity="0.14"/>
-  <text x="120" y="700" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="700">Planetary System</text>
-  <text x="120" y="770" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="30">RhSL¢"û¡„ÆÉËÍ</text>
+
+  <rect x="96" y="604" width="510" height="150" rx="28" fill="#0F172A" fill-opacity="0.68" stroke="#60A5FA" stroke-opacity="0.28"/>
+  <text x="144" y="676" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="68" font-weight="700">Planetary System</text>
+  <text x="146" y="726" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">Simulation - Orbit - Gravity - Teaching Module</text>
+
   <defs>
-    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 450) rotate(90) scale(120)">
-      <stop stop-color="#FDE68A" stop-opacity="0.8"/>
+    <linearGradient id="bg" x1="112" y1="68" x2="1521" y2="832" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="0.5" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1E1B4B"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1090 450) rotate(90) scale(180)">
+      <stop stop-color="#FDE68A" stop-opacity="0.92"/>
       <stop offset="1" stop-color="#FDE68A" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="sunCore" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1090 450) rotate(90) scale(74)">
+      <stop stop-color="#FEF3C7"/>
+      <stop offset="0.55" stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#D97706"/>
     </radialGradient>
   </defs>
 </svg>
