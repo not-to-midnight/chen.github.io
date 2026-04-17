@@ -39,10 +39,21 @@
         text-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       .card-hover {
-        @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+        transition: transform 300ms ease, box-shadow 300ms ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
       }
       .section-padding {
-        @apply py-16 md:py-24;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+      }
+      @media (min-width: 768px) {
+        .section-padding {
+          padding-top: 6rem;
+          padding-bottom: 6rem;
+        }
       }
       .animate-fade-in {
         animation: fadeIn 0.8s ease-in-out;
@@ -109,7 +120,6 @@
       <div class="flex flex-col md:flex-row items-center gap-10">
         <div class="md:w-1/2 animate-fade-in" style="animation-delay: 0.1s;">
           <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark mb-4">
-            游戏开发者<br>
             <span class="text-primary">陈皓林</span>
           </h1>
           <p class="text-gray-600 text-lg mb-8 max-w-lg">
@@ -806,7 +816,7 @@
             </div>
             <span class="font-bold text-lg">陈皓林</span>
           </div>
-          <p class="text-gray-400 text-sm">UE5游戏开发者 | 电子科技大学软件工程（数字动漫）</p>
+          <p class="text-gray-400 text-sm">电子科技大学软件工程（数字动漫）</p>
         </div>
         
         <div class="flex space-x-6">
