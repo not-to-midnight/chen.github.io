@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="transparent"/>
+
+  <g stroke="#0B2D50" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M205 518V304C205 274 229 250 259 250H350C434 250 505 277 563 348"/>
+    <path d="M563 348C622 279 696 250 788 250H856V492"/>
+    <path d="M563 348V560"/>
+    <path d="M856 250L883 266V492"/>
+    <path d="M883 266L906 281V492"/>
+
+    <path d="M195 518C283 518 361 504 452 470C502 451 539 456 563 484"/>
+    <path d="M563 560C623 505 698 472 790 472"/>
+    <path d="M193 518C193 560 219 578 267 578C342 578 418 553 505 501"/>
+
+    <path d="M189 339C139 364 114 406 114 453C114 510 158 550 242 592C355 649 470 637 557 537"/>
+    <path d="M205 313C158 338 136 376 136 421C136 472 175 507 248 547C343 600 444 596 525 525"/>
+    <path d="M189 339C274 282 372 276 466 300C506 310 540 325 563 348"/>
+    <path d="M254 263L395 406"/>
+    <path d="M395 406C443 460 479 523 503 590"/>
+
+    <path d="M224 360V419"/>
+    <path d="M224 454V520"/>
+
+    <circle cx="255" cy="252" r="33" fill="white"/>
+    <circle cx="396" cy="406" r="25" fill="white"/>
+  </g>
+
+  <g fill="#0B2D50">
+    <text x="585" y="520" font-size="116" font-weight="700" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" letter-spacing="1">
+      &#26234;&#24713;&#20113;&#25806;
+    </text>
+    <rect x="726" y="530" width="10" height="26" rx="5"/>
+    <rect x="758" y="530" width="10" height="26" rx="5"/>
+    <text x="590" y="610" font-size="82" font-weight="500" font-family="'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif" letter-spacing="1">
+      AI&#26234;&#33021;&#25945;&#23398;
+    </text>
+  </g>
+</svg>
