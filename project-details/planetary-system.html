@@ -140,30 +140,30 @@
           </section>
 
           <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">核心设计思想</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">`PlanetService` 作为唯一真相源</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  所有系统级状态都收敛在 `PlanetService` 中，包括天体注册表、模拟状态、三星模式、质心计算和重置逻辑。这样 UI 不直接计算物理，组件也不直接管理全局。
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">核心技术要点</h2>
+            <div class="space-y-6">
+              <div>
+                <h3 class="font-semibold text-lg mb-3">物理仿真核心</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  以 `PlanetService` 为统一服务层实现引力计算和天体运动模拟，采用固定步长积分器配合时间累加器推进物理状态，避免帧率波动导致轨道不稳定。支持恒星-行星系统、双星绕质心、三星平衡/不平衡等多种引力构型，可自动计算圆轨道初速度保证演示效果稳定。
                 </p>
               </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">组件自注册</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  `PlanetItem` 和 `StarItem` 在 `onLoad()` 时主动注册到服务层，在销毁时自动注销，减少外部管理器手工维护列表的复杂度。
+              <div>
+                <h3 class="font-semibold text-lg mb-3">天体实体管理</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  通过 `BallItem` → `PlanetItem` / `StarItem` 的继承层级实现代码复用，所有天体组件在 `onLoad` 时自动注册到服务层，销毁时自动注销，无需外部手动维护列表。每个天体独立维护质量、速度、受力状态和可视化表现。
                 </p>
               </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">事件驱动 UI</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  `PlanetUI` 不直接硬绑定所有行星实体，而是通过 `PlanetUpdated`、`FocusPlanetChanged`、`PlanetBodyPositionChanged` 等事件和逻辑层解耦。
+              <div>
+                <h3 class="font-semibold text-lg mb-3">交互与观察系统</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  `PlanetUI` 提供全局参数面板，`PlanetPropertyItem` 负责单颗天体的属性编辑，两者均通过事件驱动与服务层解耦，监听 `PlanetUpdated`、`FocusPlanetChanged` 等事件更新界面。`FreeCameraController` 实现自由视角和聚焦观察两种相机模式，`SkyController` 每帧驱动物理更新和渲染同步。
                 </p>
               </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">固定步长积分</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  模拟采用累加器配合固定物理步长推进，而不是直接使用帧间 `dt`。这样能显著提升轨道稳定性，避免帧率波动污染模拟结果。
+              <div>
+                <h3 class="font-semibold text-lg mb-3">架构设计特点</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  服务层作为唯一真相源集中管理所有全局状态，组件自注册机制减少手动维护成本，事件驱动 UI 保证逻辑与表现分离，固定步长物理积分确保仿真稳定性，整体设计兼顾教学演示的可理解性和工程实现的可扩展性。
                 </p>
               </div>
             </div>
@@ -176,23 +176,23 @@
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="rounded-lg overflow-hidden">
-                <img src="../images/planetary-system/gallery/二维恒星轨道.png" alt="二维恒星轨道界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <img src="../images/planetary-system/gallery/two-d-star-orbit.png" alt="二维恒星轨道界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
                 <p class="text-sm text-gray-500 mt-2">`二维恒星轨道`：展示在恒星作为引力中心时，多个行星在同一平面内形成较稳定的环绕轨道，适合说明自动圆轨道初速度和二维教学演示模式。</p>
               </div>
               <div class="rounded-lg overflow-hidden">
-                <img src="../images/planetary-system/gallery/多维恒星轨道.png" alt="多维恒星轨道界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <img src="../images/planetary-system/gallery/multi-d-star-orbit.png" alt="多维恒星轨道界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
                 <p class="text-sm text-gray-500 mt-2">`多维恒星轨道`：展示带有空间高度差和更复杂初速度分量时的三维轨道表现，用来说明系统并不局限于二维平面，而是支持更自由的轨迹观察。</p>
               </div>
               <div class="rounded-lg overflow-hidden">
-                <img src="../images/planetary-system/gallery/双星系统.png" alt="双星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <img src="../images/planetary-system/gallery/binary-star-system.png" alt="双星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
                 <p class="text-sm text-gray-500 mt-2">`双星系统`：展示无恒星条件下两颗行星围绕共同质心运动的效果，对应文档里“双体初始速度生成”和质心运动的教学场景。</p>
               </div>
               <div class="rounded-lg overflow-hidden">
-                <img src="../images/planetary-system/gallery/平衡三星系统.png" alt="平衡三星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <img src="../images/planetary-system/gallery/balanced-three-star.png" alt="平衡三星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
                 <p class="text-sm text-gray-500 mt-2">`平衡三星系统`：展示开启三星模式后，三颗行星在等角布局下形成相对平衡的运行状态，适合说明编辑器辅助布局和三星初值策略的效果。</p>
               </div>
               <div class="rounded-lg overflow-hidden md:col-span-2">
-                <img src="../images/planetary-system/gallery/不平衡三星系统.png" alt="不平衡三星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
+                <img src="../images/planetary-system/gallery/unbalanced-three-star.png" alt="不平衡三星系统界面截图" class="w-full h-auto hover:scale-105 transition-transform duration-300">
                 <p class="text-sm text-gray-500 mt-2">`不平衡三星系统`：展示三星参数不平衡时轨迹快速发散、偏离稳定构型的现象，可用于说明系统稳定性边界，以及为什么需要合理的初始条件和质心约束。</p>
               </div>
             </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2D老师与对话系统开发总结 - 教学表现系统</title>
+  <title>AI动态生成游戏多分支角色对话与动作反应</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
@@ -89,12 +89,12 @@
       </div>
 
       <div class="text-center mb-12">
-        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">2D老师与对话系统开发总结</h1>
+        <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold mb-4">AI动态生成游戏多分支角色对话与动作反应</h1>
         <p class="text-gray-600">教学表现系统 | 2025/12-2026/02 | 对话图驱动与角色动作联动设计</p>
       </div>
 
       <div class="bg-slate-950 rounded-2xl overflow-hidden shadow-md mb-12">
-        <img src="../images/2Dteacher/cover.svg" alt="2D老师与对话系统封面" class="w-full h-auto">
+        <img src="../images/2Dteacher/cover.svg" alt="AI动态生成对话系统封面" class="w-full h-auto">
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -102,10 +102,10 @@
           <section class="space-card">
             <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">系统概述</h2>
             <p class="text-gray-700 mb-4 leading-relaxed">
-              这个项目把 <strong>2D 老师系统</strong> 和 <strong>对话系统</strong> 视为一个统一的“教学表现系统”来理解。对话系统负责推进叙事、节点状态和分支逻辑，2D 老师系统负责角色动作、讲解节奏和情绪表现，两者通过节点参数、动作参数或事件桥接来联动。
+              这个项目围绕 <strong>AI 动态生成对话</strong> 与 <strong>角色动作反应</strong> 两大核心能力，构建面向游戏场景的多分支互动对话系统。对话系统基于数据驱动的节点图结构，支持分支选择、条件判断与动作触发，为 AI 动态生成的对话内容提供灵活的承载框架；2D 角色系统则负责将对话中的情绪、意图转化为具象的角色动作与表情表现，让对话不再只是文本，而是带有角色生命力的互动体验。
             </p>
             <p class="text-gray-700 leading-relaxed">
-              当前代码中，这两套能力都已经具备较完整的基础实现，但还没有完全硬接在一起。也正因为如此，这个项目的重点不只是“做了什么”，更在于说明现有架构如何自然演进成一个适用于教学、讲解和问答引导的互动对话表现框架。
+              当前架构已为 AI 接入预留了完整的扩展空间：对话节点支持动态生成与注入，动作系统提供语义化调用接口，事件驱动的设计让 AI 生成的对话内容可以自然驱动角色动作反馈。项目重点在于展示如何从传统固定对话系统，平滑演进为支持 AI 动态生成、多分支选择与角色动作联动的下一代游戏对话表现框架。
             </p>
           </section>
 
@@ -140,90 +140,33 @@
           </section>
 
           <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">对话系统的关键点</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">数据驱动节点图</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  对话系统的核心不是简单显示文本，而是由 `DialogueData`、`DialogueNode`、`DialogueChoice` 组成的有向节点图。节点通过 `nextNodeId` 和选项跳转形成完整流程。
+            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">核心技术要点</h2>
+            <div class="space-y-6">
+              <div>
+                <h3 class="font-semibold text-lg mb-3">对话系统架构</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  采用数据驱动的节点图设计，通过 `DialogueNode` 和 `DialogueChoice` 构建有向图结构，节点通过 `nextNodeId` 和选项跳转推进剧情，所有对话数据以 JSON 形式配置，支持外部动态加载。`DialogueManager` 作为核心状态机统一管理对话资源、当前节点、运行状态和历史记录，同时承担资源仓库、状态调度和节点推进的三重职责。
                 </p>
               </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">“注册 node” 的真实含义</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  当前并没有注册节点类型的机制，真正被注册的是整段对话资源。`json.nodes` 会被转换成 `Map&lt;string, DialogueNode&gt;`，由 `DialogueManager` 在运行时查找和推进。
+              <div>
+                <h3 class="font-semibold text-lg mb-3">条件与动作系统</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  内置 `DialogueConditionManager` 条件判断模块，支持根据游戏状态触发不同分支；`DialogueActionManager` 动作执行模块可在对话节点中触发游戏逻辑，已预留 `PLAY_ANIMATION` 动作类型用于驱动角色动画。
                 </p>
               </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">运行时状态机</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  `DialogueManager` 统一管理 `_dialogues`、`_currentNode`、`_state`、`_history` 等状态，使对话具备资源仓库、状态机和节点调度器三重职责。
+              <div>
+                <h3 class="font-semibold text-lg mb-3">2D 角色动作系统</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  采用数据层、服务层、表现层的三层架构。数据层通过 `Animation2DType` 枚举和配置表定义动作词典；服务层 `teacher2DService` 提供统一播放接口并管理动画状态；表现层 `teacher2DItem` 适配 `cc.Animation` 帧动画和 `Spine` 骨骼动画两种底层实现，对上层透明。
                 </p>
               </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">动作接口已预留</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  `ActionType.PLAY_ANIMATION` 已经存在，这意味着“对话控制老师动作”并不是新增系统，而是把已有预留接口真正接到 `teacher2DService` 上。
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">2D老师系统的关键点</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">数据层 `teacher2DData`</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  通过 `Animation2DType`、`Animation2DMode` 和默认配置表，构建了一套动作词典。对话层只需要传递语义化动作，不需要关心底层动画名。
-                </p>
-              </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">服务层 `teacher2DService`</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  统一对外提供播放接口，保存当前动画状态，并把请求转发给真正的动画控制器，是老师系统的唯一调用入口。
-                </p>
-              </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">表现层 `teacher2DItem`</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  挂在场景节点上，负责把 `cc.Animation` 或 `sp.Skeleton` 适配为统一接口，让服务层不被底层引擎组件耦死。
-                </p>
-              </div>
-              <div class="rounded-xl border border-gray-100 p-5 bg-slate-50">
-                <h3 class="font-semibold text-lg mb-2">联动意义</h3>
-                <p class="text-gray-700 text-sm leading-relaxed">
-                  对话系统并不需要知道老师是帧动画还是 Spine，只需要告诉服务层“播放哪种动作”，这使后续联动保持轻量且可扩展。
+              <div>
+                <h3 class="font-semibold text-lg mb-3">对话与角色联动</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  通过事件驱动的桥接模式实现低耦合联动，`DialogueTeacher2DBridge` 监听 `NodeStarted` 事件，读取节点的 `animation` 字段并通过字符串映射表转换为 `Animation2DType`，再调用服务层接口播放角色动作，整个过程不污染对话核心逻辑。
                 </p>
               </div>
             </div>
-          </section>
-
-          <section class="space-card">
-            <h2 class="text-2xl font-semibold mb-6 pb-2 border-b border-gray-100">推荐联动方案</h2>
-            <p class="text-gray-700 mb-4 leading-relaxed">
-              结合现有实现，我更推荐把这个项目描述为“节点字段 + 动作系统并存”的最终工程方案。`node.animation` 用来描述节点的默认表现动作，`actions.playAnimation` 用来表达额外触发的一次性动作，这样既保留了配置直观性，也兼顾了扩展能力。
-            </p>
-            <ul class="space-y-4">
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-link text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700"><strong>推荐接线点一：</strong>`NodeStarted`。增加 `DialogueTeacher2DBridge` 监听节点进入，读取 `node.animation` 并映射到 `Animation2DType`，这是最轻量、最符合现有架构的方案。</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-bolt text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700"><strong>推荐接线点二：</strong>`executePlayAnimation`。在动作系统里真正实现 `PLAY_ANIMATION`，适合处理选项点击、奖励反馈和特殊强调动作。</p>
-              </li>
-              <li class="flex items-start">
-                <div class="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center mt-0.5 mr-3 flex-shrink-0">
-                  <i class="fas fa-table-cells text-primary text-sm"></i>
-                </div>
-                <p class="text-gray-700"><strong>推荐映射方式：</strong>使用字符串映射表，例如 `"talk"` 对应 `Animation2DType.TALK`，既方便策划配置，也便于后期统一维护。</p>
-              </li>
-            </ul>
           </section>
 
           <section class="space-card">
@@ -233,11 +176,11 @@
             </p>
             <div class="grid grid-cols-1 gap-6">
               <div class="rounded-lg overflow-hidden border border-gray-100">
-                <img src="../images/2Dteacher/image/76566a92-2e23-42fa-9219-53608a379634.png" alt="2D老师与对话系统选项界面" class="w-full h-auto">
+                <img src="../images/2Dteacher/image/76566a92-2e23-42fa-9219-53608a379634.png" alt="AI动态生成对话系统选项界面" class="w-full h-auto">
                 <p class="text-sm text-gray-500 mt-2 px-1">带选项分支的商店对话界面：右侧老师角色负责表现，底部对话框负责文本展示，右上角选项区负责分支跳转。</p>
               </div>
               <div class="rounded-lg overflow-hidden border border-gray-100">
-                <img src="../images/2Dteacher/image/70c02e54e8c95f500bbf1db5c818dd4b.png" alt="2D老师与对话系统继续对话界面" class="w-full h-auto">
+                <img src="../images/2Dteacher/image/70c02e54e8c95f500bbf1db5c818dd4b.png" alt="AI动态生成对话系统继续对话界面" class="w-full h-auto">
                 <p class="text-sm text-gray-500 mt-2 px-1">基础推进界面：当节点没有选项时，系统通过继续按钮或自动播放推动下一个节点，老师角色则保持讲解态或待机态。</p>
               </div>
             </div>
